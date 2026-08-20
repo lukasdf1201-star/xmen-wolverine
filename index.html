@@ -4,7 +4,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#f3c600" id="themeMeta">
-<title>CEREBRO BUILD 05 — X-Men + Wolverine</title><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=4">
+<title>CEREBRO BUILD 06 — X-Men + Wolverine</title><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=4">
 <style>
 :root{--bg:#f3c600;--bg2:#ffd928;--ink:#07101d;--card:#071b3d;--accent:#1261c9;--accent2:#f3c600;--muted:#b9c7db;--white:#f8fbff;--danger:#d84a3a}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;color:var(--ink);transition:background .55s ease}
@@ -157,13 +157,19 @@ html{scroll-behavior:smooth}
 .cover .fallback,.detailCover .fallback{display:grid;place-items:center;width:100%;height:100%;padding:10px;text-align:center}
 .cover .fallback:before,.detailCover .fallback:before{content:"X";display:block;font:900 44px/1 Arial,sans-serif;color:var(--accent2);margin-bottom:7px}
 </style>
-</head><body><div id="buildBadge">UX BUILD 05 · STABLE MOTION</div>
+
+<style id="runtime-error-ui">
+#runtimeError{display:none;position:fixed;left:10px;right:10px;bottom:calc(76px + env(safe-area-inset-bottom));z-index:99999;
+background:#7a1010;color:white;border:1px solid #ff7b7b;border-radius:12px;padding:10px 12px;font:700 11px/1.35 -apple-system,BlinkMacSystemFont,sans-serif;
+box-shadow:0 8px 30px #0008}
+</style>
+</head><body><div id="runtimeError"></div><div id="buildBadge">UX BUILD 06 · SAFARI FIX</div>
 <header><div class="brand"><div class="logo"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="#f3c600" stroke-width="8"/><path d="M28 24 L50 45 L72 24 L78 31 L57 51 L78 71 L72 78 L50 57 L28 78 L22 71 L43 51 L22 31 Z" fill="#f3c600"/></svg></div><div><h1>Cerebro</h1><div class="kicker">X-MEN + WOLVERINE · UX TEST</div></div></div><span id="eraLabel">CLAREMONT</span></header>
 
 
 <section id="homeView" class="view active">
   <div class="mxHero">
-    <div class="mxEyebrow">MUTANT DATABASE // UX BUILD 05 · STABLE MOTION</div>
+    <div class="mxEyebrow">MUTANT DATABASE // UX BUILD 06 · SAFARI FIX</div>
     <h2>CEREBRO<br>REBUILT</h2>
     <p>Ta chronologie X-Men et Wolverine, de Claremont à aujourd’hui.</p>
     <div class="mxProgress"><div class="mxProgressTop"><span>COLLECTION</span><strong id="mxPct">0%</strong></div><div class="mxTrack"><i id="mxBar" style="width:0%"></i></div></div>
@@ -176,7 +182,7 @@ html{scroll-behavior:smooth}
 
 <section id="listView" class="view"><div class="buyModeBar" id="buyModeBar"><b>MODE LIBRAIRE</b><button class="btn yellow" id="exitBuyMode">Quitter</button></div><div class="sticky"><div class="searchrow"><input id="search" type="search" placeholder="Rechercher titre, année, édition…"><button class="btn" id="editBtn">✎</button></div><div class="filters"><button class="on" data-f="all">Tout</button><button data-f="missing">À acheter</button><button data-f="ordered">En commande</button><button data-f="owned">Possédés</button><button data-f="unread">À lire</button><button data-f="fav">Favoris</button></div></div><main id="list"></main></section>
 
-<section id="libraryView" class="view"><div class="sticky"><div class="filters"><button class="on libfilter" data-lf="owned">Ma collection</button><button class="libfilter" data-lf="missing">À acheter</button><button class="libfilter" data-lf="fav">Favoris</button></div></div><div style="padding:8px 12px"><button class="btn" id="shelfToggle">Étagère</button></div><div class="grid" id="grid"></div></section>
+<section id="libraryView" class="view"><div class="sticky"><div class="filters"><button class="on libfilter" data-lf="all">Tous</button><button class="libfilter" data-lf="owned">Ma collection</button><button class="libfilter" data-lf="missing">À acheter</button><button class="libfilter" data-lf="fav">Favoris</button></div></div><div style="padding:8px 12px"><button class="btn" id="shelfToggle">Étagère</button></div><div class="grid" id="grid"></div></section>
 
 <section id="cerebroView" class="view">
  <div class="cerebroHero"><div class="mxEyebrow">CEREBRO ANALYSIS</div><h2>ADN MUTANT</h2><p>Analyse intelligente de ta collection : couverture éditoriale, doublons, branches et lacunes.</p><div class="dnaGrid" id="dnaGrid"></div></div>
@@ -196,6 +202,12 @@ html{scroll-behavior:smooth}
 
 <script>
 
+window.addEventListener('error',function(e){
+  const box=document.getElementById('runtimeError');
+  if(box){box.style.display='block';box.textContent='CEREBRO ERROR · '+(e.message||'Erreur JavaScript');}
+});
+
+
 const CEREBRO_BUILD='UX_BUILD_02_2026-08-20';
 try{localStorage.setItem('cerebro_last_build',CEREBRO_BUILD)}catch(e){}
 console.log('CEREBRO BUILD',CEREBRO_BUILD);
@@ -212,7 +224,68 @@ const THEMES={
 'Ère moderne':['#f1c91c','#ffe566','#102c5d','#2d76c8','#f1c91c'],
 'Krakoa':['#e7dfbd','#f4efda','#273c31','#6a4b91','#d7c56a'],
 'From the Ashes':['#e3b72d','#f4d96b','#242834','#b13a36','#e3b72d']};
-let items=[],owned={},meta={},filter='all',libFilter='owned',editing=false,currentEra='Claremont';
+let items=[],owned={},meta={},filter='all',libFilter='all',editing=false,currentEra='Claremont';
+
+const themeMeta=document.getElementById('themeMeta');
+const eraLabel=document.getElementById('eraLabel');
+const mxPct=document.getElementById('mxPct');
+const mxBar=document.getElementById('mxBar');
+const continueBtn=document.getElementById('continueBtn');
+const buyModeHome=document.getElementById('buyModeHome');
+const nextCounter=document.getElementById('nextCounter');
+const nextReading=document.getElementById('nextReading');
+const homeTimeline=document.getElementById('homeTimeline');
+const archiveCount=document.getElementById('archiveCount');
+const archives=document.getElementById('archives');
+const buyModeBar=document.getElementById('buyModeBar');
+const exitBuyMode=document.getElementById('exitBuyMode');
+const search=document.getElementById('search');
+const editBtn=document.getElementById('editBtn');
+const list=document.getElementById('list');
+const shelfToggle=document.getElementById('shelfToggle');
+const grid=document.getElementById('grid');
+const dnaGrid=document.getElementById('dnaGrid');
+const mutantNetwork=document.getElementById('mutantNetwork');
+const cerebroAnalysis=document.getElementById('cerebroAnalysis');
+const addBtn=document.getElementById('addBtn');
+const exportBtn=document.getElementById('exportBtn');
+const importBtn=document.getElementById('importBtn');
+const importFile=document.getElementById('importFile');
+const resetBtn=document.getElementById('resetBtn');
+const detailModal=document.getElementById('detailModal');
+const detailContent=document.getElementById('detailContent');
+const closeDetail=document.getElementById('closeDetail');
+const priceModal=document.getElementById('priceModal');
+const priceId=document.getElementById('priceId');
+const priceInput=document.getElementById('priceInput');
+const retailInput=document.getElementById('retailInput');
+const cancelPrice=document.getElementById('cancelPrice');
+const savePrice=document.getElementById('savePrice');
+const editModal=document.getElementById('editModal');
+const editTitle=document.getElementById('editTitle');
+const eid=document.getElementById('eid');
+const etitle=document.getElementById('etitle');
+const eperiod=document.getElementById('eperiod');
+const eseries=document.getElementById('eseries');
+const efmt=document.getElementById('efmt');
+const epriority=document.getElementById('epriority');
+const eera=document.getElementById('eera');
+const ecover=document.getElementById('ecover');
+const eisbn=document.getElementById('eisbn');
+const eedition=document.getElementById('eedition');
+const epages=document.getElementById('epages');
+const enote=document.getElementById('enote');
+const eduplicate=document.getElementById('eduplicate');
+const cancelEdit=document.getElementById('cancelEdit');
+const saveEdit=document.getElementById('saveEdit');
+const copyModal=document.getElementById('copyModal');
+const copyId=document.getElementById('copyId');
+const shopInput=document.getElementById('shopInput');
+const dateInput=document.getElementById('dateInput');
+const conditionInput=document.getElementById('conditionInput');
+const cancelCopy=document.getElementById('cancelCopy');
+const saveCopy=document.getElementById('saveCopy');
+
 const clone=x=>JSON.parse(JSON.stringify(x));
 function load(){try{owned=JSON.parse(localStorage.getItem(OWN)||'{}')}catch(e){}try{let x=JSON.parse(localStorage.getItem(LIST)||'null');items=Array.isArray(x)&&x.length?x:clone(BASE)}catch(e){items=clone(BASE)}try{meta=JSON.parse(localStorage.getItem(META)||'{}')}catch(e){};items.forEach((x,i)=>{if(!x.era)x.era=BASE.find(b=>b.id===x.id)?.era||'Ère moderne'});if(localStorage.getItem(ORDER_MIGRATION)!=='done'){const rank=new Map(CANONICAL_ORDER.map((id,i)=>[id,i]));const known=items.filter(x=>rank.has(x.id)).sort((a,b)=>rank.get(a.id)-rank.get(b.id));const custom=items.filter(x=>!rank.has(x.id));items=[...known,...custom];items.forEach((x,i)=>x.order=i+1);localStorage.setItem(ORDER_MIGRATION,'done');localStorage.setItem(LIST,JSON.stringify(items));}}
 
@@ -349,12 +422,32 @@ function save(){localStorage.setItem(OWN,JSON.stringify(owned));localStorage.set
 function M(id){return meta[id]||(meta[id]={read:false,fav:false,priority:false,ordered:false,price:0,retail:0,cover:'',isbn:'',edition:'',pages:'',shop:'',date:'',condition:'',duplicate:''})}
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 function applyTheme(e){if(!THEMES[e])return;currentEra=e;let t=THEMES[e],r=document.documentElement.style;r.setProperty('--bg',t[0]);r.setProperty('--bg2',t[1]);r.setProperty('--card',t[2]);r.setProperty('--accent',t[3]);r.setProperty('--accent2',t[4]);eraLabel.textContent=e.toUpperCase();themeMeta.setAttribute('content',t[0])}
-function stats(){let total=items.length,o=items.filter(x=>owned[x.id]).length,rd=items.filter(x=>M(x.id).read).length,ord=items.filter(x=>M(x.id).ordered).length,f=items.filter(x=>M(x.id).fav).length,spent=items.reduce((a,x)=>a+(owned[x.id]?+M(x.id).price||0:0),0);sOwned.textContent=o+'/'+total;sRead.textContent=rd+'/'+total;sSpent.textContent=spent.toLocaleString('fr-FR')+' €';sAvg.textContent=(o?spent/o:0).toLocaleString('fr-FR',{maximumFractionDigits:2})+' €';cOwned.textContent=Math.round(o/total*100)+'%';cRead.textContent=Math.round(rd/total*100)+'%';cOrdered.textContent=ord;cFav.textContent=f;renderEras();let groups=groupStats().sort((a,b)=>b.owned/b.total-a.owned/a.total),g=groups.find(x=>x.owned<x.total)||groups[0];nearComplete.textContent=g?g.name+' — '+g.owned+'/'+g.total:'—';nearInfo.textContent=g&&g.owned<g.total?(g.total-g.owned)+' album(s) manquant(s) pour compléter cette époque.':'Collection complète.'}
+function stats(){
+  const total=items.length;
+  const own=items.filter(x=>owned[x.id]).length;
+  const rd=items.filter(x=>M(x.id).read).length;
+  const ord=items.filter(x=>M(x.id).ordered).length;
+  const fav=items.filter(x=>M(x.id).fav).length;
+  const spent=items.reduce((a,x)=>a+(owned[x.id]?(+M(x.id).price||0):0),0);
+  return {total,own,rd,ord,fav,spent};
+}
 function groupStats(){return [...new Set(items.map(x=>x.era))].map(name=>{let a=items.filter(x=>x.era===name);return{name,total:a.length,owned:a.filter(x=>owned[x.id]).length,read:a.filter(x=>M(x.id).read).length}})}
-function renderEras(){let h=groupStats().map(g=>`<div class="eraRow"><div class="eraTop"><span>${esc(g.name)}</span><span>${g.owned}/${g.total} · ${g.read} lus</span></div><div class="bar"><i style="width:${g.total?g.owned/g.total*100:0}%"></i></div></div>`).join('');eraProgress.innerHTML=h;cerebroEras.innerHTML=h}
+function renderEras(){return groupStats();}
 function match(x){let m=M(x.id),q=search.value.toLowerCase(),hay=(x.title+' '+x.period+' '+x.series+' '+x.fmt+' '+x.note+' '+m.isbn+' '+m.edition).toLowerCase(),ok=!q||hay.includes(q);if(filter==='missing')ok=ok&&!owned[x.id]&&!m.ordered;else if(filter==='ordered')ok=ok&&m.ordered;else if(filter==='owned')ok=ok&&owned[x.id];else if(filter==='unread')ok=ok&&owned[x.id]&&!m.read;else if(filter==='fav')ok=ok&&m.fav;return ok}
 function renderList(){list.innerHTML='';let last='';items.forEach((x,i)=>{if(!match(x))return;if(x.era!==last){list.insertAdjacentHTML('beforeend',renderEraChapter(x.era));last=x.era}let m=M(x.id),c=document.createElement('article');c.className='card';c.dataset.era=x.era;const oo=buyMode?ownedOverlap(x):null;c.innerHTML=`<div class="row"><label><input type="checkbox" data-own="${x.id}" ${owned[x.id]?'checked':''}><span class="check"></span></label><div data-detail="${x.id}"><div class="meta"><span class="tag year">#${String(i+1).padStart(3,'0')}</span><span class="tag year">${esc(x.period)}</span><span class="tag">${esc(x.series)}</span></div><div class="title">${esc(x.title)}</div><div class="fmt">${esc(x.fmt)}</div>${buyMode?`<div class="note"><b>${m.isbn?'EAN '+esc(m.isbn):'EAN à compléter'}</b>${oo&&oo.total?` · ${oo.pct}% inédit pour toi`:''}</div>`:''}${(m.edition||m.pages||m.isbn)&&!buyMode?`<div class="note">Panini ${esc(m.edition||'—')} · ${esc(m.pages||'—')} p.${m.isbn?' · EAN '+esc(m.isbn):''}</div>`:''}${x.contentSpec&&!buyMode?`<div class="note">✓ Contenu US indexé</div>`:''}${x.note&&!buyMode?`<div class="note">${esc(x.note)}</div>`:''}${!buyMode?`<div class="pills"><button class="pill ${m.read?'on':''}" data-act="read" data-id="${x.id}">📖 Lu</button><button class="pill ${m.priority?'on':''}" data-act="priority" data-id="${x.id}">🎯 Prioritaire</button><button class="pill ${m.ordered?'on':''}" data-act="ordered" data-id="${x.id}">📦 Commandé</button><button class="pill ${m.fav?'on':''}" data-act="fav" data-id="${x.id}">♥</button><button class="pill" data-act="price" data-id="${x.id}">€ ${m.price||'Prix'}</button></div>`:''}</div>${!buyMode?`<div class="tools"><button class="mini" data-act="edit" data-id="${x.id}">✎</button></div>`:''}</div>`;list.appendChild(c)});wire();observeEras()}
-function renderGrid(){grid.innerHTML='';items.filter(x=>libFilter==='owned'?owned[x.id]:libFilter==='missing'?!owned[x.id]:M(x.id).fav).forEach(x=>{let b=document.createElement('div');b.className='book';b.dataset.detail=x.id;b.innerHTML=`<div class="cover">${coverHTML(x)}</div><div class="bookinfo"><b>${esc(x.title)}</b><span>#${String(items.indexOf(x)+1).padStart(3,'0')} · ${esc(x.period)}</span></div>`;grid.appendChild(b)});document.querySelectorAll('[data-detail]').forEach(e=>e.onclick=ev=>{if(ev.target.closest('button'))return;openDetail(e.dataset.detail)})}
+
+function coverHTML(x){
+  const m=M(x.id);
+  const seed=VERIFIED_SEED[x.title]||{};
+  const src=m.cover||seed.cover||'';
+  const title=esc(x.title);
+  if(src){
+    return `<img src="${esc(src)}" alt="${title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><span class="fallback" style="display:none">${title}</span>`;
+  }
+  return `<span class="fallback">${title}</span>`;
+}
+
+function renderGrid(){grid.innerHTML='';items.filter(x=>libFilter==='all'?true:libFilter==='owned'?owned[x.id]:libFilter==='missing'?!owned[x.id]:M(x.id).fav).forEach(x=>{let b=document.createElement('div');b.className='book';b.dataset.detail=x.id;b.innerHTML=`<div class="cover">${coverHTML(x)}</div><div class="bookinfo"><b>${esc(x.title)}</b><span>#${String(items.indexOf(x)+1).padStart(3,'0')} · ${esc(x.period)}</span></div>`;grid.appendChild(b)});document.querySelectorAll('[data-detail]').forEach(e=>e.onclick=ev=>{if(ev.target.closest('button'))return;openDetail(e.dataset.detail)})}
 function wire(){document.querySelectorAll('[data-own]').forEach(e=>e.onchange=()=>{owned[e.dataset.own]=e.checked;if(e.checked)M(e.dataset.own).ordered=false;checkArcCompletion(e.dataset.own);save();renderAll()});document.querySelectorAll('[data-act]').forEach(b=>b.onclick=e=>{e.stopPropagation();act(b.dataset.act,b.dataset.id)});document.querySelectorAll('[data-detail]').forEach(e=>e.onclick=ev=>{if(ev.target.closest('button'))return;openDetail(e.dataset.detail)})}
 function act(a,id){let i=items.findIndex(x=>x.id===id),m=M(id);if(a==='read')m.read=!m.read;else if(a==='priority')m.priority=!m.priority;else if(a==='ordered')m.ordered=!m.ordered;else if(a==='fav')m.fav=!m.fav;else if(a==='price'){priceId.value=id;priceInput.value=m.price||'';retailInput.value=m.retail||'';priceModal.classList.add('open');return}else if(a==='copy'){copyId.value=id;shopInput.value=m.shop||'';dateInput.value=m.date||'';conditionInput.value=m.condition||'';copyModal.classList.add('open');return}else if(a==='edit'){openEdit(id);return}else if(a==='delete'){if(confirm('Supprimer ce titre ?'))items.splice(i,1)}else if(a==='up'&&i>0)[items[i-1],items[i]]=[items[i],items[i-1]];else if(a==='down'&&i<items.length-1)[items[i+1],items[i]]=[items[i],items[i+1]];save();renderAll()}
 function openDetail(id){let x=items.find(z=>z.id===id),m=M(id),saving=m.retail&&m.price?m.retail-m.price:0;detailIndex=items.indexOf(x);detailContent.innerHTML=`<div class="detailNav"><button id="prevDetail">← Précédent</button><button id="nextDetail">Suivant →</button></div><div class="detailCover">${coverHTML(x)}</div><h2>#${String(detailIndex+1).padStart(3,'0')} · ${esc(x.title)}</h2><div class="pills"><span class="pill ${owned[id]?'on':''}">✓ Possédé</span><span class="pill ${m.read?'on':''}">📖 Lu</span><span class="pill ${m.ordered?'on':''}">📦 Commandé</span><span class="pill ${m.fav?'on':''}">♥ Favori</span></div><button class="btn scanBtn" onclick="doScan('${id}')">◎ CEREBRO SCAN</button><div id="scanHost"></div><div class="detailBlock"><h3>Édition</h3><p>${esc(x.fmt)}</p><p>ISBN / EAN : ${esc(m.isbn||'—')}</p><p>Année d’édition : ${esc(m.edition||'—')} · Pages : ${esc(m.pages||'—')}</p></div><div class="detailBlock"><h3>Mon exemplaire</h3><p>Prix payé : ${m.price?m.price+' €':'—'} ${m.retail?'· Catalogue : '+m.retail+' €':''}</p>${saving>0?`<p>Économie : ${saving.toFixed(2)} €</p>`:''}<p>${esc(m.shop||'Lieu non renseigné')} ${m.date?'· '+esc(m.date):''}</p><p>État : ${esc(m.condition||'—')}</p></div><div class="detailBlock"><h3>Contenu US</h3><p>${x.contentSpec?esc(x.contentSpec).replace(/\n/g,'<br>'):'—'}</p></div>${eraProgressHTML(x)}<div class="detailBlock"><h3>Notes</h3><p>${esc(x.note||'—')}</p></div>`;detailModal.classList.add('open');const sh=detailModal.querySelector('.sheet');sh.scrollTop=0;prevDetail.onclick=()=>openDetail(items[(detailIndex-1+items.length)%items.length].id);nextDetail.onclick=()=>openDetail(items[(detailIndex+1)%items.length].id)}
