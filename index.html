@@ -4,7 +4,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#f3c600" id="themeMeta">
-<title>Cerebro UX — X-Men + Wolverine</title><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=4">
+<title>CEREBRO TOTAL · MOTION — X-Men + Wolverine</title><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=4">
 <style>
 :root{--bg:#f3c600;--bg2:#ffd928;--ink:#07101d;--card:#071b3d;--accent:#1261c9;--accent2:#f3c600;--muted:#b9c7db;--white:#f8fbff;--danger:#d84a3a}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;color:var(--ink);transition:background .55s ease}
@@ -83,13 +83,118 @@ header .brand h1{letter-spacing:-.04em;font-size:26px}
 background:#00e5ff;color:#00131a;border:2px solid #00131a;border-radius:999px;padding:5px 8px;
 font:900 9px/1 -apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:.08em;box-shadow:0 4px 12px #0005}
 </style>
-</head><body><div id="buildBadge">UX BUILD 02</div>
+
+<style id="cerebro-motion-v1">
+:root{
+  --motion-fast:180ms;
+  --motion-med:320ms;
+  --motion-slow:520ms;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-spring:cubic-bezier(.2,1.25,.35,1);
+}
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+.view{opacity:0;transform:translateY(10px) scale(.995);filter:blur(2px);pointer-events:none}
+.view.active{opacity:1;transform:none;filter:none;pointer-events:auto;animation:viewIn var(--motion-med) var(--ease-out) both}
+@keyframes viewIn{from{opacity:0;transform:translateY(14px) scale(.992);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@keyframes viewOut{from{opacity:1;transform:none}to{opacity:0;transform:translateY(-8px) scale(.995)}}
+
+.tabs{transition:transform var(--motion-med) var(--ease-out),background var(--motion-med),border-color var(--motion-med)}
+.tabs button{position:relative;transition:color var(--motion-fast),transform var(--motion-fast) var(--ease-spring),opacity var(--motion-fast)}
+.tabs button:active{transform:scale(.86)}
+.tabs button.on{transform:translateY(-2px)}
+.tabs button.on:after{content:"";position:absolute;left:50%;bottom:1px;width:22px;height:3px;border-radius:99px;background:var(--accent2);transform:translateX(-50%) scaleX(0);animation:tabUnderline var(--motion-med) var(--ease-spring) forwards}
+@keyframes tabUnderline{to{transform:translateX(-50%) scaleX(1)}}
+
+.mxHero>*{opacity:0;transform:translateY(12px);animation:heroItem .55s var(--ease-out) forwards}
+.mxHero>*:nth-child(1){animation-delay:.03s}.mxHero>*:nth-child(2){animation-delay:.08s}.mxHero>*:nth-child(3){animation-delay:.13s}.mxHero>*:nth-child(4){animation-delay:.18s}.mxHero>*:nth-child(5){animation-delay:.23s}
+@keyframes heroItem{to{opacity:1;transform:none}}
+.mxHero:before{animation:heroX 1.3s var(--ease-out) both}
+@keyframes heroX{from{opacity:0;transform:rotate(-7deg) scale(.82)}to{opacity:1;transform:rotate(-7deg) scale(1)}}
+
+.mxAction,.btn,.pill,.mini,.node,.timeNode{transition:transform var(--motion-fast) var(--ease-spring),box-shadow var(--motion-fast),background var(--motion-fast),color var(--motion-fast),border-color var(--motion-fast),opacity var(--motion-fast)}
+.mxAction:active,.btn:active,.pill:active,.mini:active,.node:active{transform:scale(.94)}
+.mxAction:hover,.btn:hover{box-shadow:0 8px 24px #0002}
+
+.card,.book,.heroCard,.dnaCard,.cerebroStat,.eraRow{animation:cardIn .42s var(--ease-out) both;animation-delay:calc(var(--stagger,0) * 22ms)}
+@keyframes cardIn{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+
+.eraChapter{animation:chapterIn .55s var(--ease-out) both}
+@keyframes chapterIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.eraChapter:after{animation:chapterX 1s var(--ease-out) both}
+@keyframes chapterX{from{transform:translateX(35px) scale(.9);opacity:0}to{transform:none;opacity:1}}
+
+.sheet{transform:translateY(100%);animation:sheetUp .38s var(--ease-out) forwards}
+.modal.open{animation:modalFade .22s ease-out both}
+@keyframes modalFade{from{background:#00102700}to{background:#001027cc}}
+@keyframes sheetUp{to{transform:translateY(0)}}
+.modal.closing .sheet{animation:sheetDown .22s ease-in forwards}
+.modal.closing{animation:modalOut .22s ease-in forwards}
+@keyframes sheetDown{to{transform:translateY(100%)}}
+@keyframes modalOut{to{background:#00102700}}
+
+.detailCover{transform-origin:center;animation:coverPop .48s var(--ease-spring) both}
+@keyframes coverPop{from{opacity:0;transform:scale(.88) rotate(-1.5deg)}to{opacity:1;transform:none}}
+.detailBlock{opacity:0;transform:translateY(8px);animation:detailIn .36s var(--ease-out) forwards}
+.detailBlock:nth-of-type(1){animation-delay:.05s}.detailBlock:nth-of-type(2){animation-delay:.1s}.detailBlock:nth-of-type(3){animation-delay:.15s}.detailBlock:nth-of-type(4){animation-delay:.2s}
+
+.detailNav button{transition:transform var(--motion-fast) var(--ease-spring),background var(--motion-fast)}
+.detailNav button:active{transform:translateX(-4px)}
+.detailNav button:last-child:active{transform:translateX(4px)}
+
+.scanResult{animation:scanResultIn .5s var(--ease-spring) both}
+@keyframes scanResultIn{0%{opacity:0;transform:scale(.94)}60%{transform:scale(1.015)}100%{opacity:1;transform:scale(1)}}
+.scanBtn.scanning{animation:scanPulse 1s ease-in-out infinite}
+@keyframes scanPulse{50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--accent2) 20%,transparent)}}
+
+.timeline{scroll-snap-type:x proximity}
+.timeNode{scroll-snap-align:center;opacity:.75}
+.timeNode:hover,.timeNode:active{transform:translateY(-4px) scale(1.03);opacity:1}
+.timeNode i{animation:nodePulse 2.4s ease-in-out infinite}
+@keyframes nodePulse{50%{box-shadow:0 0 0 8px color-mix(in srgb,var(--accent2) 14%,transparent),0 0 24px color-mix(in srgb,var(--accent) 28%,transparent)}}
+
+.eraProgressFill,.mxTrack i{transition:width .7s var(--ease-out)}
+.progress i{transition:width .7s var(--ease-out)}
+
+.cover img{transition:transform .45s var(--ease-out),filter .3s}
+.book:active .cover img,.nextBook:active .cover img{transform:scale(1.035)}
+.book{transition:transform var(--motion-fast) var(--ease-spring),box-shadow var(--motion-fast)}
+.book:active{transform:translateY(-5px) scale(.98)}
+
+.network{animation:networkIn .7s var(--ease-out) both}
+@keyframes networkIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.network svg line{stroke-dasharray:4 3;animation:networkFlow 5s linear infinite}
+@keyframes networkFlow{to{stroke-dashoffset:-28}}
+.node{animation:nodeFloat 4s ease-in-out infinite}
+.node:nth-of-type(2){animation-delay:.6s}.node:nth-of-type(3){animation-delay:1.2s}.node:nth-of-type(4){animation-delay:1.8s}.node:nth-of-type(5){animation-delay:2.4s}
+@keyframes nodeFloat{50%{transform:translateY(-4px)}}
+.node.main{animation:mainNodePulse 2.8s ease-in-out infinite}
+@keyframes mainNodePulse{50%{box-shadow:0 0 0 10px color-mix(in srgb,var(--accent2) 10%,transparent),0 0 35px color-mix(in srgb,var(--accent2) 30%,transparent)}}
+
+.buyModeBar{transform:translateY(-100%);opacity:0}
+.buyModeBar.on{animation:buyBarIn .32s var(--ease-out) forwards}
+@keyframes buyBarIn{to{transform:translateY(0);opacity:1}}
+
+.shelf .book{animation:shelfBook .45s var(--ease-spring) both;animation-delay:calc(var(--stagger,0) * 18ms)}
+@keyframes shelfBook{from{opacity:0;transform:rotate(180deg) translateY(20px)}to{opacity:1;transform:rotate(180deg)}}
+
+#buildBadge{transition:opacity .3s}
+body.motion-ready #buildBadge{opacity:.72}
+
+.pageFlash{position:fixed;inset:0;z-index:9998;pointer-events:none;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--accent2) 12%,transparent),transparent);transform:translateX(-120%);animation:pageFlash .45s ease-out}
+@keyframes pageFlash{to{transform:translateX(120%)}}
+
+@media (prefers-reduced-motion: reduce){
+  *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+</style>
+</head><body><div id="buildBadge">CEREBRO TOTAL · MOTION</div>
 <header><div class="brand"><div class="logo"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="#f3c600" stroke-width="8"/><path d="M28 24 L50 45 L72 24 L78 31 L57 51 L78 71 L72 78 L50 57 L28 78 L22 71 L43 51 L22 31 Z" fill="#f3c600"/></svg></div><div><h1>Cerebro</h1><div class="kicker">X-MEN + WOLVERINE · UX TEST</div></div></div><span id="eraLabel">CLAREMONT</span></header>
 
 
 <section id="homeView" class="view active">
   <div class="mxHero">
-    <div class="mxEyebrow">MUTANT DATABASE // UX BUILD 02</div>
+    <div class="mxEyebrow">MUTANT DATABASE // CEREBRO TOTAL · MOTION</div>
     <h2>CEREBRO<br>REBUILT</h2>
     <p>Ta chronologie X-Men et Wolverine, de Claremont à aujourd’hui.</p>
     <div class="mxProgress"><div class="mxProgressTop"><span>COLLECTION</span><strong id="mxPct">0%</strong></div><div class="mxTrack"><i id="mxBar" style="width:0%"></i></div></div>
@@ -121,6 +226,28 @@ font:900 9px/1 -apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:.08em;
 <div class="modal" id="copyModal"><div class="sheet"><h2>Mon exemplaire</h2><input type="hidden" id="copyId"><div class="field"><label>Lieu d’achat</label><input id="shopInput" placeholder="Vinted, Fnac, librairie…"></div><div class="field"><label>Date d’achat</label><input id="dateInput" type="date"></div><div class="field"><label>État</label><select id="conditionInput"><option></option><option>Neuf</option><option>Comme neuf</option><option>Très bon</option><option>Bon</option><option>Correct</option></select></div><div class="actions"><button class="btn" id="cancelCopy">Annuler</button><button class="btn yellow" id="saveCopy">Enregistrer</button></div></div></div>
 
 <script>
+
+function addStagger(){
+ document.querySelectorAll('.card,.book,.heroCard,.dnaCard,.eraRow').forEach((el,i)=>el.style.setProperty('--stagger',Math.min(i,16)));
+}
+function flashTransition(){
+ const f=document.createElement('div');f.className='pageFlash';document.body.appendChild(f);setTimeout(()=>f.remove(),500);
+}
+function switchViewAnimated(id){
+ const current=document.querySelector('.view.active'),next=document.getElementById(id);
+ if(!next||current===next)return;
+ flashTransition();
+ if(current){current.style.animation='viewOut 180ms ease-in both';setTimeout(()=>{current.classList.remove('active');current.style.animation='';next.classList.add('active');addStagger();window.scrollTo({top:0,behavior:'smooth'})},170)}
+ else{next.classList.add('active');addStagger()}
+ document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.view===id));
+}
+function closeModalAnimated(modal){
+ if(!modal.classList.contains('open'))return;
+ modal.classList.add('closing');
+ setTimeout(()=>{modal.classList.remove('open','closing')},220);
+}
+document.body.classList.add('motion-ready');
+
 
 const CEREBRO_BUILD='UX_BUILD_02_2026-08-20';
 try{localStorage.setItem('cerebro_last_build',CEREBRO_BUILD)}catch(e){}
@@ -217,7 +344,7 @@ function scanResultHTML(x){
  if(!o.total)return `<div class="scanResult"><div class="scanLine"></div><strong>DONNÉES INSUFFISANTES</strong><p>Le contenu US de cet album n’est pas encore entièrement indexé.</p></div>`;
  return `<div class="scanResult"><div class="scanLine"></div><strong>${o.pct}% DE CONTENU INÉDIT POUR TOI</strong><p>${o.total} épisodes indexés · ${o.shared} déjà présents dans tes albums possédés.</p>${o.with.slice(0,4).map(v=>`<p>↳ ${esc(v.title)} · ${v.shared.map(esc).join(', ')}</p>`).join('')}</div>`
 }
-function doScan(id){const x=items.find(z=>z.id===id),host=document.getElementById('scanHost');if(host)host.innerHTML=scanResultHTML(x)}
+function doScan(id){const x=items.find(z=>z.id===id),host=document.getElementById('scanHost'),btn=document.querySelector('.scanBtn');if(btn)btn.classList.add('scanning');if(host){host.innerHTML='<div class="scanResult"><div class="scanLine"></div><strong>ANALYSE CEREBRO…</strong></div>';setTimeout(()=>{host.innerHTML=scanResultHTML(x);if(btn)btn.classList.remove('scanning')},520)}}
 
 function nextUnread(){
  const ownedUnread=items.find(x=>owned[x.id]&&!M(x.id).read);
@@ -285,13 +412,13 @@ function wire(){document.querySelectorAll('[data-own]').forEach(e=>e.onchange=()
 function act(a,id){let i=items.findIndex(x=>x.id===id),m=M(id);if(a==='read')m.read=!m.read;else if(a==='priority')m.priority=!m.priority;else if(a==='ordered')m.ordered=!m.ordered;else if(a==='fav')m.fav=!m.fav;else if(a==='price'){priceId.value=id;priceInput.value=m.price||'';retailInput.value=m.retail||'';priceModal.classList.add('open');return}else if(a==='copy'){copyId.value=id;shopInput.value=m.shop||'';dateInput.value=m.date||'';conditionInput.value=m.condition||'';copyModal.classList.add('open');return}else if(a==='edit'){openEdit(id);return}else if(a==='delete'){if(confirm('Supprimer ce titre ?'))items.splice(i,1)}else if(a==='up'&&i>0)[items[i-1],items[i]]=[items[i],items[i-1]];else if(a==='down'&&i<items.length-1)[items[i+1],items[i]]=[items[i],items[i+1]];save();renderAll()}
 function openDetail(id){let x=items.find(z=>z.id===id),m=M(id),saving=m.retail&&m.price?m.retail-m.price:0;detailIndex=items.indexOf(x);detailContent.innerHTML=`<div class="detailNav"><button id="prevDetail">← Précédent</button><button id="nextDetail">Suivant →</button></div><div class="detailCover">${coverHTML(x)}</div><h2>#${String(detailIndex+1).padStart(3,'0')} · ${esc(x.title)}</h2><div class="pills"><span class="pill ${owned[id]?'on':''}">✓ Possédé</span><span class="pill ${m.read?'on':''}">📖 Lu</span><span class="pill ${m.ordered?'on':''}">📦 Commandé</span><span class="pill ${m.fav?'on':''}">♥ Favori</span></div><button class="btn scanBtn" onclick="doScan('${id}')">◎ CEREBRO SCAN</button><div id="scanHost"></div><div class="detailBlock"><h3>Édition</h3><p>${esc(x.fmt)}</p><p>ISBN / EAN : ${esc(m.isbn||'—')}</p><p>Année d’édition : ${esc(m.edition||'—')} · Pages : ${esc(m.pages||'—')}</p></div><div class="detailBlock"><h3>Mon exemplaire</h3><p>Prix payé : ${m.price?m.price+' €':'—'} ${m.retail?'· Catalogue : '+m.retail+' €':''}</p>${saving>0?`<p>Économie : ${saving.toFixed(2)} €</p>`:''}<p>${esc(m.shop||'Lieu non renseigné')} ${m.date?'· '+esc(m.date):''}</p><p>État : ${esc(m.condition||'—')}</p></div><div class="detailBlock"><h3>Contenu US</h3><p>${x.contentSpec?esc(x.contentSpec).replace(/\n/g,'<br>'):'—'}</p></div>${eraProgressHTML(x)}<div class="detailBlock"><h3>Notes</h3><p>${esc(x.note||'—')}</p></div>`;detailModal.classList.add('open');const sh=detailModal.querySelector('.sheet');sh.scrollTop=0;prevDetail.onclick=()=>openDetail(items[(detailIndex-1+items.length)%items.length].id);nextDetail.onclick=()=>openDetail(items[(detailIndex+1)%items.length].id)}
 function openEdit(id=''){let x=id?items.find(z=>z.id===id):null,m=id?M(id):{};eid.value=id;etitle.value=x?.title||'';eperiod.value=x?.period||'';eseries.value=x?.series||'';efmt.value=x?.fmt||'';epriority.value=x?.priority||'Essentiel';eera.value=x?.era||currentEra;ecover.value=m.cover||'';eisbn.value=m.isbn||'';eedition.value=m.edition||'';epages.value=m.pages||'';enote.value=x?.note||'';eduplicate.value=m.duplicate||'';editModal.classList.add('open')}
-function saveEditFn(){if(!etitle.value.trim())return alert('Titre requis');let id=eid.value||('custom_'+Date.now()),obj={id,title:etitle.value.trim(),period:eperiod.value.trim(),series:eseries.value.trim(),fmt:efmt.value.trim(),priority:epriority.value,note:enote.value.trim(),status:'OK',era:eera.value};if(eid.value){let i=items.findIndex(x=>x.id===id);items[i]=obj}else items.push(obj);Object.assign(M(id),{cover:ecover.value.trim(),isbn:eisbn.value.trim(),edition:eedition.value.trim(),pages:epages.value.trim(),duplicate:eduplicate.value.trim()});save();editModal.classList.remove('open');renderAll()}
+function saveEditFn(){if(!etitle.value.trim())return alert('Titre requis');let id=eid.value||('custom_'+Date.now()),obj={id,title:etitle.value.trim(),period:eperiod.value.trim(),series:eseries.value.trim(),fmt:efmt.value.trim(),priority:epriority.value,note:enote.value.trim(),status:'OK',era:eera.value};if(eid.value){let i=items.findIndex(x=>x.id===id);items[i]=obj}else items.push(obj);Object.assign(M(id),{cover:ecover.value.trim(),isbn:eisbn.value.trim(),edition:eedition.value.trim(),pages:epages.value.trim(),duplicate:eduplicate.value.trim()});save();closeModalAnimated(editModal);renderAll()}
 let eraObserver=null;
 function observeEras(){if(eraObserver)eraObserver.disconnect();eraObserver=new IntersectionObserver(es=>{const v=es.find(e=>e.isIntersecting);if(v)applyTheme(v.target.dataset.era)},{rootMargin:'-30% 0px -60% 0px',threshold:0});document.querySelectorAll('.era-anchor').forEach(e=>eraObserver.observe(e))}
-function renderAll(){stats();renderList();renderGrid();renderHomeModern();renderCerebroModern()}
-document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(b.dataset.view).classList.add('active');if(b.dataset.view==='libraryView')renderGrid()});
+function renderAll(){stats();renderList();renderGrid();renderHomeModern();renderCerebroModern();requestAnimationFrame(addStagger)}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>switchViewAnimated(b.dataset.view));
 search.oninput=renderList;document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-f]').forEach(x=>x.classList.remove('on'));b.classList.add('on');filter=b.dataset.f;renderList()});document.querySelectorAll('.libfilter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.libfilter').forEach(x=>x.classList.remove('on'));b.classList.add('on');libFilter=b.dataset.lf;renderGrid()});
-editBtn.onclick=()=>{editing=!editing;document.body.classList.toggle('editing',editing);editBtn.textContent=editing?'✓':'✎'};addBtn.onclick=()=>openEdit();closeDetail.onclick=()=>detailModal.classList.remove('open');cancelEdit.onclick=()=>editModal.classList.remove('open');saveEdit.onclick=saveEditFn;cancelPrice.onclick=()=>priceModal.classList.remove('open');savePrice.onclick=()=>{let m=M(priceId.value);m.price=parseFloat(priceInput.value)||0;m.retail=parseFloat(retailInput.value)||0;save();priceModal.classList.remove('open');renderAll()};cancelCopy.onclick=()=>copyModal.classList.remove('open');saveCopy.onclick=()=>{let m=M(copyId.value);m.shop=shopInput.value.trim();m.date=dateInput.value;m.condition=conditionInput.value;save();copyModal.classList.remove('open');renderAll()};
+editBtn.onclick=()=>{editing=!editing;document.body.classList.toggle('editing',editing);editBtn.textContent=editing?'✓':'✎'};addBtn.onclick=()=>openEdit();closeDetail.onclick=()=>closeModalAnimated(detailModal);cancelEdit.onclick=()=>closeModalAnimated(editModal);saveEdit.onclick=saveEditFn;cancelPrice.onclick=()=>closeModalAnimated(priceModal);savePrice.onclick=()=>{let m=M(priceId.value);m.price=parseFloat(priceInput.value)||0;m.retail=parseFloat(retailInput.value)||0;save();closeModalAnimated(priceModal);renderAll()};cancelCopy.onclick=()=>closeModalAnimated(copyModal);saveCopy.onclick=()=>{let m=M(copyId.value);m.shop=shopInput.value.trim();m.date=dateInput.value;m.condition=conditionInput.value;save();closeModalAnimated(copyModal);renderAll()};
 exportBtn.onclick=()=>{let blob=new Blob([JSON.stringify({version:5,items,owned,meta},null,2)],{type:'application/json'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='cerebro-sauvegarde-v5.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};importBtn.onclick=()=>importFile.click();importFile.onchange=async e=>{try{let d=JSON.parse(await e.target.files[0].text());items=d.items;owned=d.owned||{};meta=d.meta||{};save();renderAll()}catch(_){alert('Sauvegarde invalide')}};resetBtn.onclick=()=>{if(confirm('Restaurer la liste d’origine ?')){items=clone(BASE);save();renderAll()}};
 load();
 migrateCatalogue();
