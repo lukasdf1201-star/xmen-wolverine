@@ -4,7 +4,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#f3c600" id="themeMeta">
-<title>CEREBRO COMPLETE BUILD 11 — Premium UX</title><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=4">
+<title>CEREBRO COMPLETE BUILD 12 — X-Men Polish</title><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=4">
 <style>
 :root{--bg:#f3c600;--bg2:#ffd928;--ink:#07101d;--card:#071b3d;--accent:#1261c9;--accent2:#f3c600;--muted:#b9c7db;--white:#f8fbff;--danger:#d84a3a}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;color:var(--ink);transition:background .55s ease}
@@ -271,15 +271,20 @@ background:linear-gradient(106deg,transparent 0 27%,#ffd800 28% 31%,transparent 
 .view.active{animation:b11View .26s cubic-bezier(.16,1,.3,1) both}@keyframes b11View{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:none}}
 @media(min-width:700px){.grid.galleryMode{grid-template-columns:repeat(4,minmax(0,1fr));max-width:1000px;margin:auto}}
 </style>
-</head><body><div id="gestureBackCue" class="gestureBackCue">← Retour</div>
+<style id="build12-polish">
+.view{transform-origin:50% 100%;will-change:transform,opacity,filter}.view.active{animation:viewEnter12 .42s cubic-bezier(.16,1,.3,1) both!important}@keyframes viewEnter12{0%{opacity:0;transform:translate3d(18px,8px,0) scale(.985);filter:blur(2px)}100%{opacity:1;transform:none;filter:none}}.tabs button{transition:transform .32s cubic-bezier(.16,1,.3,1),background .28s,color .28s,opacity .28s}.tabs button.active{transform:translateY(-4px) scale(1.04)}.tabs button.active i{animation:tabPulse12 .42s cubic-bezier(.16,1,.3,1)}@keyframes tabPulse12{0%{transform:scale(.72);opacity:.35}100%{transform:none;opacity:1}}
+.card[data-id].ownedBook,.book[data-id].ownedBook{background-image:linear-gradient(#06101fd9,#06101fd9)!important;border-color:#ffd80070!important;box-shadow:inset 4px 0 0 #ffd800,0 8px 28px #0004!important}.card[data-id].ownedBook:after,.book[data-id].ownedBook:after{width:82px!important;height:96px!important;right:-10px!important;top:-7px!important;opacity:.76!important;background:linear-gradient(105deg,transparent 0 19%,#ffd800 20% 24%,transparent 25% 37%,#ffd800 38% 42%,transparent 43% 55%,#ffd800 56% 60%,transparent 61%)!important}.possessedLabel{background:#050a12!important;color:#ffd800!important;border-color:#ffd80038!important;box-shadow:0 6px 16px #0007!important}.card.archivedBook{background-image:linear-gradient(#06152ee6,#06152ee6)!important}
+.grid.shelf{display:flex!important;align-items:flex-end;gap:5px;overflow:auto;padding:42px 16px 58px!important;min-height:68vh;background:radial-gradient(circle at 50% 12%,#1a5cb02d,transparent 32%),linear-gradient(180deg,#020915 0 88%,#071c38 88% 91%,#020711 91% 100%)!important;border-top:1px solid #ffffff10;perspective:900px}.grid.shelf:before{content:"CEREBRO // ARCHIVE WALL";position:absolute;left:18px;margin-top:-28px;color:#ffd800;font-size:7px;font-weight:950;letter-spacing:.16em}.grid.shelf .book{min-width:42px!important;width:42px!important;height:318px!important;border-radius:3px 3px 1px 1px!important;writing-mode:vertical-rl;transform:rotate(180deg);padding:9px 5px!important;background:linear-gradient(90deg,#061327,#0b2c57 44%,#071a34)!important;border:1px solid #ffffff13!important;color:#dce9ff!important;box-shadow:inset -1px 0 #ffffff1c,inset 5px 0 #08101e,5px 3px 13px #0008!important}.grid.shelf .book:nth-child(3n){height:300px!important}.grid.shelf .book:nth-child(4n){height:334px!important}.grid.shelf .book:nth-child(5n){height:310px!important}.grid.shelf .book:active{transform:rotate(180deg) translateY(-22px) translateZ(18px) scale(1.035)!important}.grid.shelf .ownedBook{background:linear-gradient(90deg,#0a1422,#152c45 44%,#08111d)!important;box-shadow:inset -4px 0 #ffd800,5px 3px 13px #0009!important}.grid.shelf .archivedBook{box-shadow:inset -4px 0 #62a0ff,5px 3px 13px #0009!important}.grid.shelf .book:after{display:none!important}
+.mutantHeroArt{background:radial-gradient(circle at 70% 30%,#246ac34d,transparent 42%)}.mutantHeroFallback{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden}.mutantHeroFallback:before{content:attr(data-letter);font:900 190px/.8 Arial;color:#ffffff0b;transform:rotate(-8deg)}.mutantHeroFallback:after{content:"CEREBRO PORTRAIT";position:absolute;right:12px;top:18px;color:#ffd800;font-size:7px;font-weight:950;letter-spacing:.14em}.mutantHeroArt img{filter:saturate(.92) contrast(1.08)}
+</style></head><body><div id="gestureBackCue" class="gestureBackCue">← Retour</div>
 <div id="arcCelebration"><div class="arcClaws"></div><div class="arcBox"><div class="arcX">X</div><div class="mxEyebrow">ARCHIVE CEREBRO COMPLÉTÉE</div><h2 id="arcCelebrateTitle">ARC COMPLET</h2><p id="arcCelebrateMeta">COLLECTION TERMINÉE</p><div class="arcPct">100 %</div></div></div>
-<div id="runtimeError"></div><div id="buildBadge">CEREBRO COMPLETE · BUILD 11 PREMIUM</div>
+<div id="runtimeError"></div><div id="buildBadge">CEREBRO COMPLETE · BUILD 12 X-MEN POLISH</div>
 <header><div class="brand"><div class="logo"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="#f3c600" stroke-width="8"/><path d="M28 24 L50 45 L72 24 L78 31 L57 51 L78 71 L72 78 L50 57 L28 78 L22 71 L43 51 L22 31 Z" fill="#f3c600"/></svg></div><div><h1>Cerebro</h1><div class="kicker">X-MEN + WOLVERINE · UX TEST</div></div></div><span id="eraLabel">CLAREMONT</span></header>
 
 
 <section id="homeView" class="view active">
   <div class="mxHero">
-    <div class="mxEyebrow">MUTANT DATABASE // CEREBRO COMPLETE · BUILD 11 PREMIUM</div>
+    <div class="mxEyebrow">MUTANT DATABASE // CEREBRO COMPLETE · BUILD 12 X-MEN POLISH</div>
     <h2>CEREBRO<br>REBUILT</h2>
     <p>Ta chronologie X-Men et Wolverine, de Claremont à aujourd’hui.</p>
     <div class="mxProgress"><div class="mxProgressTop"><span>COLLECTION</span><strong id="mxPct">0%</strong></div><div class="mxTrack"><i id="mxBar" style="width:0%"></i></div></div>
@@ -535,10 +540,13 @@ const dbUnlocked=document.getElementById('dbUnlocked'),dbEvents=document.getElem
 
 
 const CHARACTER_ART={
- wolverine:{default:'https://cdn.marvel.com/content/2x/marvelswolverine_lob_crd_02.jpg','2019':'https://cdn.marvel.com/content/2x/marvelswolverine_lob_crd_02.jpg'},
- jean:{default:'https://cdn.marvel.com/content/2x/186jgr-mas_mob_03.jpg','1980':'https://cdn.marvel.com/content/2x/186jgr-mas_mob_03.jpg'}
+wolverine:{default:'https://i.pinimg.com/736x/86/fb/58/86fb58fbdd5738f60d79424df480b1d8.jpg','1980':'https://i.pinimg.com/736x/86/fb/58/86fb58fbdd5738f60d79424df480b1d8.jpg'},
+storm:{default:'https://i.pinimg.com/736x/62/00/60/620060e04ae66be0de0001bcf4ce9408.jpg','1983':'https://i.pinimg.com/736x/62/00/60/620060e04ae66be0de0001bcf4ce9408.jpg'},
+jean:{default:'https://i.pinimg.com/736x/de/ca/d5/decad56670941e2d9fab8e7924047105.jpg','1980':'https://i.pinimg.com/736x/de/ca/d5/decad56670941e2d9fab8e7924047105.jpg'},
+magneto:{default:'https://comicvine.gamespot.com/a/uploads/scale_small/11135/111356344/6833881-0545233248-main-qimg-674e70c9aac10beed96cae8181354e8e'},
+emma:{default:'https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2020/04/Emma-Frost-Phil.jpg?quality=80&resize=640%2C1040&ssl=1'}
 };
-function characterArt(m,ev){const set=CHARACTER_ART[m.id]||{};return set[ev?.year]||set.default||eventArt(ev)||''}
+function characterArt(m,ev){const set=CHARACTER_ART[m.id]||{};return set[ev?.year]||set.default||''}
 
 const PERIOD_DETAILS={
  "wolverine|1975":{summary:"Logan quitte le cadre canadien pour rejoindre la nouvelle équipe internationale de Xavier. Son tempérament solitaire se heurte immédiatement à la vie de groupe.",position:"Nouveau membre des X-Men",anecdote:"Dave Cockrum affine en 1975 le costume jaune et bleu devenu emblématique.",moment:"Apprendre à fonctionner au sein d’une équipe."},
@@ -570,7 +578,7 @@ function openMutant(id){
   if(!o)return `<section class="mEvent locked" data-period="${idx}" data-art="${esc(art)}" data-year="${esc(ev.year)}" data-look="ARCHIVE VERROUILLÉE"><div class="mEventArt">${art?`<img src="${esc(art)}" alt="">`:''}</div><div class="mEventCopy"><div class="mEventYear">${esc(ev.year)}</div><div class="mEventType">ARCHIVE VERROUILLÉE</div><div class="mEventTitle">Période non découverte</div><div class="mInfo wide"><small>CEREBRO</small><p>Continue ta lecture pour révéler cette période sans spoiler.</p></div></div></section>`;
   return `<section class="mEvent" data-period="${idx}" data-art="${esc(art)}" data-year="${esc(ev.year)}" data-look="${esc(ev.look||ev.title)}"><div class="mEventArt">${art?`<img src="${esc(art)}" alt="${esc(m.name)} — ${esc(ev.year)}">`:''}</div><div class="mEventCopy"><div class="mEventYear">${esc(ev.year)}</div><div class="mEventType">${esc(ev.type)} · ${esc(ev.look||'APPARENCE ARCHIVÉE')}</div><div class="mEventTitle">${esc(ev.title)}</div><div class="mEventGrid"><div class="mInfo wide"><small>RÉSUMÉ DE LA PÉRIODE</small><p>${esc(d.summary)}</p></div><div class="mInfo"><small>POSITION</small><p>${esc(d.position)}</p></div><div class="mInfo"><small>APPARENCE</small><p>${esc(ev.look||'—')}</p></div><div class="mInfo"><small>MOMENT CLÉ</small><p>${esc(d.moment)}</p></div><div class="mInfo"><small>ANECDOTE</small><p>${esc(d.anecdote)}</p></div></div>${book?`<button class="mBookLink" data-open-book="${book.id}">▣ ${esc(book.title)}</button>`:''}</div></section>`
  }).join('');
- mutantProfile.innerHTML=`<div class="mutantProfile"><div class="mutantHeroArt">${firstArt?`<img id="mutantHeroImage" src="${esc(firstArt)}" alt="">`:''}</div><div class="sig">${esc(m.initial)}</div><div class="real">${esc(m.real.toUpperCase())}</div><h2>${esc(m.name)}</h2><p>${esc(m.bio)}</p><div class="mutantKnowledge"><div class="mutantKnowledgeTop"><span>DOSSIER CEREBRO</span><span>${pct}% DÉCHIFFRÉ</span></div><div class="mutantKnowledgeBar"><i style="width:${pct}%"></i></div></div><div class="mutantHeroPeriod"><small id="mutantHeroYear">${esc(firstOpen?.year||'')}</small><b id="mutantHeroLook">${esc(firstOpen?.look||'')}</b></div></div><div class="mutantTimeline"><h3>CHRONOLOGIE DÉCOUVERTE · ${unlocked}/${m.events.length} PÉRIODES</h3>${evs}</div><div class="periodDots">${m.events.map((_,i)=>`<i data-dot="${i}"></i>`).join('')}</div>`;
+ mutantProfile.innerHTML=`<div class="mutantProfile"><div class="mutantHeroArt">${firstArt?`<img id="mutantHeroImage" src="${esc(firstArt)}" alt="">`:`<div class="mutantHeroFallback" data-letter="${esc(m.initial)}"></div>`}</div><div class="sig">${esc(m.initial)}</div><div class="real">${esc(m.real.toUpperCase())}</div><h2>${esc(m.name)}</h2><p>${esc(m.bio)}</p><div class="mutantKnowledge"><div class="mutantKnowledgeTop"><span>DOSSIER CEREBRO</span><span>${pct}% DÉCHIFFRÉ</span></div><div class="mutantKnowledgeBar"><i style="width:${pct}%"></i></div></div><div class="mutantHeroPeriod"><small id="mutantHeroYear">${esc(firstOpen?.year||'')}</small><b id="mutantHeroLook">${esc(firstOpen?.look||'')}</b></div></div><div class="mutantTimeline"><h3>CHRONOLOGIE DÉCOUVERTE · ${unlocked}/${m.events.length} PÉRIODES</h3>${evs}</div><div class="periodDots">${m.events.map((_,i)=>`<i data-dot="${i}"></i>`).join('')}</div>`;
  mutantProfile.querySelectorAll('[data-open-book]').forEach(b=>b.onclick=()=>{mutantSheet.classList.remove('open');openDetail(b.dataset.openBook)});
  mutantSheet.classList.add('open');mutantSheet.scrollTop=0;observeMutantPeriods();
 }
