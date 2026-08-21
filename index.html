@@ -8,7 +8,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#f3c600" id="themeMeta">
-<title>CEREBRO V1.0 RC1 RC1 — X-Men + Wolverine</title><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=04">
+<title>CEREBRO V1.0 RC2 · STABLE RC1 — X-Men + Wolverine</title><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=04">
 <style>
 :root{--bg:#f3c600;--bg2:#ffd928;--ink:#07101d;--card:#071b3d;--accent:#1261c9;--accent2:#f3c600;--muted:#b9c7db;--white:#f8fbff;--danger:#d84a3a}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;color:var(--ink);transition:background .55s ease}
@@ -236,13 +236,21 @@ linear-gradient(180deg,#031025 0%,#07152d 48%,#020916 100%);color:white;padding-
 @keyframes premiumTitle{from{opacity:0;transform:translateY(12px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
 @media(min-width:700px){.vaultGallery{grid-template-columns:repeat(4,minmax(0,1fr))}.vaultHero,.vaultStage,.vaultModes,.vaultControls{max-width:950px;margin-left:auto;margin-right:auto}.vaultEra{border-radius:22px;margin:16px}}
 </style>
-</head><body><div id="updatePill"><b>V1.0</b><button id="forceRefreshBtn">Actualiser</button></div><div id="buildBadge">V1.0 RC1</div>
-<header><div class="brand"><div class="logo"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="#f3c600" stroke-width="8"/><path d="M28 24 L50 45 L72 24 L78 31 L57 51 L78 71 L72 78 L50 57 L28 78 L22 71 L43 51 L22 31 Z" fill="#f3c600"/></svg></div><div><h1>Cerebro</h1><div class="kicker">X-MEN + WOLVERINE · UX TEST</div></div></div><span id="eraLabel">CLAREMONT</span></header>
+
+<style id="rc2-stability-css">
+.card{background:linear-gradient(155deg,#0b234a 0%,#06142d 58%,#030a17 100%)!important;border-color:#ffffff20!important;box-shadow:0 10px 28px #0005,inset 0 1px #ffffff0b!important}
+.card .title{color:#fff}.card .note{color:#b9cbe3}.card .fmt{color:#8fc4ff}
+.missingCover{width:100%;height:100%;min-height:100px;flex-direction:column;align-items:center;justify-content:center;gap:6px;background:radial-gradient(circle at 70% 20%,color-mix(in srgb,var(--accent) 45%,transparent),transparent 42%),linear-gradient(145deg,#0b2f65,#041126);color:var(--accent2);font:900 48px/1 Arial}.missingCover small{font:850 9px/1 -apple-system,BlinkMacSystemFont,sans-serif;color:#fff9}
+.network .node{overflow:hidden;position:absolute}.network .node.hasArt{padding-left:30px}.network .node.hasArt:before{content:"";position:absolute;left:3px;top:50%;width:23px;height:23px;transform:translateY(-50%);border-radius:50%;background-image:var(--node-art);background-size:cover;background-position:center;box-shadow:0 0 12px #247cff66}
+.premiumSlash{position:absolute;inset:0;pointer-events:none;overflow:hidden}.premiumSlash i{position:absolute;left:-130%;top:50%;width:125%;height:1.5px;background:linear-gradient(90deg,transparent,#fff,var(--accent2),#fff,transparent);filter:drop-shadow(0 0 6px var(--accent2));transform:rotate(-16deg);animation:rc2slash .62s cubic-bezier(.16,1,.3,1) forwards}.premiumSlash i:nth-child(2){top:calc(50% - 17px);animation-delay:.04s}.premiumSlash i:nth-child(3){top:calc(50% + 17px);animation-delay:.08s}@keyframes rc2slash{0%{left:-130%;opacity:0}12%{opacity:1}78%{left:130%;opacity:1}100%{left:130%;opacity:0}}
+</style>
+</head><body><div id="updatePill"><b>V1.0</b><button id="forceRefreshBtn">Actualiser</button></div><div id="buildBadge">V1.0 RC2 · STABLE</div>
+<header><div class="brand"><div class="logo"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="#f3c600" stroke-width="8"/><path d="M28 24 L50 45 L72 24 L78 31 L57 51 L78 71 L72 78 L50 57 L28 78 L22 71 L43 51 L22 31 Z" fill="#f3c600"/></svg></div><div><h1>Cerebro</h1><div class="kicker">X-MEN + WOLVERINE · RC2 STABLE</div></div></div><span id="eraLabel">CLAREMONT</span></header>
 
 
 <section id="homeView" class="view active">
   <div class="mxHero">
-    <div class="mxEyebrow">MUTANT DATABASE // V1.0 RC1</div>
+    <div class="mxEyebrow">MUTANT DATABASE // V1.0 RC2 · STABLE</div>
     <h2>CEREBRO<br>REBUILT</h2>
     <p>Ta chronologie X-Men et Wolverine, de Claremont à aujourd’hui.</p>
     <div class="mxProgress"><div class="mxProgressTop"><span>COLLECTION</span><strong id="mxPct">0%</strong></div><div class="mxTrack"><i id="mxBar" style="width:0%"></i></div></div>
@@ -318,7 +326,7 @@ function closeModalAnimated(modal){
 document.body.classList.add('motion-ready');
 
 
-const CEREBRO_BUILD='1.0_RC1';
+const CEREBRO_BUILD='1.0_RC2_STABLE';
 
 try{
  const prevBuild=localStorage.getItem('cerebro_build_seen');
@@ -403,7 +411,7 @@ const ERA_COPY={
  'From the Ashes':['DES CENDRES','Après Krakoa, il faut recommencer.'],
  'Ère de Révélation':['RÉVÉLATION','L’avenir mutant bascule à nouveau.']
 };
-let overlapCache=new Map(), detailIndex=-1, touchX=0, shelfMode=false, buyMode=false, lastOwnedSnapshot={};
+let overlapCache=new Map(), detailIndex=-1, touchX=0, touchY=0, shelfMode=false, buyMode=false, lastOwnedSnapshot={};
 
 function rebuildOverlapCache(){
  overlapCache=new Map();
@@ -462,7 +470,8 @@ function renderCerebroModern(){
  const indexed=items.filter(x=>episodeTokens(x.contentSpec).length).length;
  const risky=items.filter(x=>!owned[x.id]&&ownedOverlap(x).shared>0).length;
  dnaGrid.innerHTML=`<div class="dnaCard"><strong>${items.length?Math.round(ownedItems.length/items.length*100):0}%</strong><span>CHRONOLOGIE ACQUISE</span></div><div class="dnaCard"><strong>${items.length?Math.round(readItems.length/items.length*100):0}%</strong><span>CHRONOLOGIE LUE</span></div><div class="dnaCard"><strong>${esc(dominant[0])}</strong><span>BRANCHE DOMINANTE</span></div><div class="dnaCard"><strong>${esc(domEra[0])}</strong><span>ÉPOQUE DOMINANTE</span></div>`;
- mutantNetwork.innerHTML=`<svg viewBox="0 0 100 100" preserveAspectRatio="none"><g stroke="#4e91ff55" stroke-width=".5">${[[50,48,18,18],[50,48,82,18],[50,48,15,78],[50,48,84,78]].map(a=>`<line x1="${a[0]}" y1="${a[1]}" x2="${a[2]}" y2="${a[3]}"/>`).join('')}</g></svg><button class="node main" data-series="X-Men">X-MEN</button><button class="node" style="left:8%;top:13%" data-series="Wolverine">WOLVERINE</button><button class="node" style="right:6%;top:13%" data-series="New Mutants">NEW MUTANTS</button><button class="node" style="left:6%;bottom:12%" data-series="X-Force">X-FORCE</button><button class="node" style="right:5%;bottom:12%" data-series="X-Factor">X-FACTOR</button>`;
+ const nodeDefs=[['X-Men','X-Men','50%','45%','main'],['Wolverine','Wolverine','8%','13%',''],['New Mutants','New Mutants','68%','13%',''],['X-Force','X-Force','6%','76%',''],['X-Factor','X-Factor','68%','76%','']];
+ mutantNetwork.innerHTML=`<svg viewBox="0 0 100 100" preserveAspectRatio="none"><g stroke="#4e91ff55" stroke-width=".5">${[[50,48,18,18],[50,48,82,18],[50,48,15,78],[50,48,84,78]].map(a=>`<line x1="${a[0]}" y1="${a[1]}" x2="${a[2]}" y2="${a[3]}"/>`).join('')}</g></svg>`+nodeDefs.map(([label,series,left,top,cls])=>{const item=items.find(x=>(x.series||'').includes(series)&&M(x.id).cover),art=item?M(item.id).cover:'';return `<button class="node ${cls} ${art?'hasArt':''}" style="left:${left};top:${top};${art?`--node-art:url('${esc(art)}')`:''}" data-series="${esc(series)}">${esc(label)}</button>`}).join('');
  mutantNetwork.querySelectorAll('.node').forEach(b=>b.onclick=()=>{gotoView('listView');search.value=b.dataset.series;renderList()});
  cerebroAnalysis.innerHTML=`<div class="dnaGrid"><div class="dnaCard"><strong>${indexed}</strong><span>FICHES US INDEXÉES</span></div><div class="dnaCard"><strong>${risky}</strong><span>ACHATS AVEC CHEVAUCHEMENT</span></div></div><div class="heroCard" style="margin-top:12px"><small>CEREBRO CONSEIL</small><b>${risky?'Vérifie les doublons avant achat':'Aucun achat redondant détecté'}</b><p>Le scanner d’une fiche compare son contenu uniquement aux albums que tu possèdes.</p></div>`;
 }
@@ -471,7 +480,7 @@ function renderEraChapter(era){
  return `<div class="eraChapter era-anchor" data-era="${esc(era)}"><small>${esc(era.toUpperCase())}</small><b>${esc(d[0])}</b><span>${esc(d[1])}</span></div>`
 }
 function showArcComplete(name){
- const el=document.createElement('div');el.className='arcFlash';el.innerHTML=`<div><span>ARCHIVE CEREBRO</span><b>${esc(name)}</b><span>ARC TERMINÉ</span></div>`;document.body.appendChild(el);setTimeout(()=>el.remove(),1900)
+ const el=document.createElement('div');el.className='arcFlash';el.innerHTML=`<div class="premiumSlash"><i></i><i></i><i></i></div><div><span>ARCHIVE CEREBRO</span><b>${esc(name)}</b><span>ARC TERMINÉ</span></div>`;document.body.appendChild(el);if(navigator.vibrate)navigator.vibrate([18,30,22]);setTimeout(()=>el.remove(),1900)
 }
 function checkArcCompletion(changedId){
  for(const a of ARC_DEFS){if(!a.ids.includes(changedId))continue;const before=a.ids.every(id=>lastOwnedSnapshot[id]);const now=a.ids.every(id=>owned[id]);if(!before&&now)showArcComplete(a.name)}
@@ -511,26 +520,32 @@ function localCharacterArt(name){
  const slug=name.toLowerCase().replace(/[^a-z0-9]+/g,'-');
  return `characters/${slug}.webp`;
 }
-function characterImg(name){
- if(!name)return '';
- const local=localCharacterArt(name),fallback=CHARACTER_ART[name]||'';
- return `<img class="vaultCharacter" src="${local}" ${fallback?`onerror="this.onerror=null;this.src='${fallback}'"`:`onerror="this.remove()"`} alt="">`;
+
+function representativeCoverFor(name,era=''){
+ const tests={Wolverine:/wolverine|logan|x-23|laura/i,Phoenix:/phoenix|jean grey|dark phoenix/i,Storm:/storm|tornade/i,Rogue:/rogue|malicia/i,Gambit:/gambit/i,Apocalypse:/apocalypse/i,Magneto:/magneto/i,Cyclops:/cyclop/i,Cable:/cable/i,'Professor X':/xavier|professor x/i,Nightcrawler:/nightcrawler|diablo/i,Beast:/beast|fauve/i,Colossus:/colossus/i,'Kitty Pryde':/kitty pryde|shadowcat/i,Deadpool:/deadpool/i};
+ const rx=tests[name];if(!rx)return '';const a=items.find(x=>(!era||x.era===era)&&rx.test(x.title+' '+x.series+' '+x.note)&&M(x.id).cover)||items.find(x=>rx.test(x.title+' '+x.series+' '+x.note)&&M(x.id).cover);return a?M(a.id).cover:''
 }
+function characterImg(name,era=''){
+ if(!name)return '';const local=localCharacterArt(name),fallback=representativeCoverFor(name,era)||(CHARACTER_ART[name]||'');
+ return `<img class="vaultCharacter" src="${esc(local)}" ${fallback?`onerror="this.onerror=null;this.src='${esc(fallback)}'"`:`onerror="this.remove()"`} alt="${esc(name)}">`
+}
+
 let vaultMode='shelf';
 function vaultBookClass(x){
  const f=(x.fmt||'').toLowerCase();
  return f.includes('omnibus')?'omnibus':f.includes('deluxe')?'deluxe':f.includes('intégrale')||f.includes('integrale')?'integrale':'';
 }
 function renderVault(){
- const arr=items.filter(x=>!vaultOwnedOnly?.checked||owned[x.id]);
+ const arr=items.filter(x=>!vaultOwnedOnly||!vaultOwnedOnly.checked||owned[x.id]);
  const own=items.filter(x=>owned[x.id]),read=items.filter(x=>M(x.id).read);
  const pages=own.reduce((n,x)=>n+(parseInt(M(x.id).pages)||0),0);
  const years=own.map(x=>parseInt((x.period||'').match(/\d{4}/)?.[0])).filter(Boolean);
+ if(!vaultStats||!vaultStage)return;
  vaultStats.innerHTML=`<div class="vaultStat"><b>${own.length}/${items.length}</b><span>VOLUMES</span></div><div class="vaultStat"><b>${read.length}</b><span>LUS</span></div><div class="vaultStat"><b>${pages.toLocaleString('fr-FR')}</b><span>PAGES RÉFÉRENCÉES</span></div><div class="vaultStat"><b>${years.length?Math.min(...years)+'—'+Math.max(...years):'—'}</b><span>PÉRIODE</span></div>`;
  if(vaultMode==='gallery')return renderVaultGallery(arr);
  if(vaultMode==='timeline')return renderVaultTimeline(arr);
  const groups=[];arr.forEach(x=>{let g=groups.find(a=>a.era===x.era);if(!g){g={era:x.era,items:[]};groups.push(g)}g.items.push(x)});
- vaultStage.innerHTML=groups.map(g=>{const c=eraCharacter(g.era,g.items),d=ERA_COPY[g.era]||[g.era.toUpperCase(),'Archive mutante'];return `<section class="vaultEra" data-vault-era="${esc(g.era)}"><div class="vaultEraBg">${characterImg(c)}</div><div class="vaultEraHead"><small>${esc(g.era.toUpperCase())}${c?' // '+esc(c.toUpperCase()):''}</small><h3>${esc(d[0])}</h3><p>${g.items.filter(x=>owned[x.id]).length}/${g.items.length} volumes acquis</p></div><div class="shelfScene"><div class="shelfBooks">${g.items.map((x,i)=>`<div class="vbook ${vaultBookClass(x)} ${owned[x.id]?'':'missing'} ${M(x.id).read?'read':''}" data-vbook="${x.id}" style="--stagger:${Math.min(i,18)}"><div class="vbookSpine">${esc(x.title)}</div><div class="vbookNo">#${String(items.indexOf(x)+1).padStart(3,'0')}</div></div>`).join('')}</div></div></section>`}).join('')||'<div class="vaultEmpty">Aucun volume à afficher.</div>';
+ vaultStage.innerHTML=groups.map(g=>{const c=eraCharacter(g.era,g.items),d=ERA_COPY[g.era]||[g.era.toUpperCase(),'Archive mutante'];return `<section class="vaultEra" data-vault-era="${esc(g.era)}"><div class="vaultEraBg">${characterImg(c,g.era)}</div><div class="vaultEraHead"><small>${esc(g.era.toUpperCase())}${c?' // '+esc(c.toUpperCase()):''}</small><h3>${esc(d[0])}</h3><p>${g.items.filter(x=>owned[x.id]).length}/${g.items.length} volumes acquis</p></div><div class="shelfScene"><div class="shelfBooks">${g.items.map((x,i)=>`<div class="vbook ${vaultBookClass(x)} ${owned[x.id]?'':'missing'} ${M(x.id).read?'read':''}" data-vbook="${x.id}" style="--stagger:${Math.min(i,18)}"><div class="vbookSpine">${esc(x.title)}</div><div class="vbookNo">#${String(items.indexOf(x)+1).padStart(3,'0')}</div></div>`).join('')}</div></div></section>`}).join('')||'<div class="vaultEmpty">Aucun volume à afficher.</div>';
  wireVault();
  const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('inview',e.isIntersecting)),{threshold:.22});document.querySelectorAll('.vaultEra').forEach(e=>io.observe(e));
 }
@@ -553,27 +568,52 @@ document.addEventListener('DOMContentLoaded',()=>{
  if(window.vaultBookOverlay)vaultBookOverlay.onclick=e=>{if(e.target===vaultBookOverlay)vaultBookOverlay.classList.remove('open')};
 });
 
+
+const $id=(id)=>document.getElementById(id);
+const list=$id('list'),search=$id('search'),editBtn=$id('editBtn'),detailModal=$id('detailModal'),detailContent=$id('detailContent'),closeDetail=$id('closeDetail'),
+priceModal=$id('priceModal'),priceId=$id('priceId'),priceInput=$id('priceInput'),retailInput=$id('retailInput'),cancelPrice=$id('cancelPrice'),savePrice=$id('savePrice'),
+editModal=$id('editModal'),eid=$id('eid'),etitle=$id('etitle'),eperiod=$id('eperiod'),eseries=$id('eseries'),efmt=$id('efmt'),epriority=$id('epriority'),eera=$id('eera'),
+ecover=$id('ecover'),eisbn=$id('eisbn'),eedition=$id('eedition'),epages=$id('epages'),enote=$id('enote'),eduplicate=$id('eduplicate'),cancelEdit=$id('cancelEdit'),saveEdit=$id('saveEdit'),
+copyModal=$id('copyModal'),copyId=$id('copyId'),shopInput=$id('shopInput'),dateInput=$id('dateInput'),conditionInput=$id('conditionInput'),cancelCopy=$id('cancelCopy'),saveCopy=$id('saveCopy'),
+addBtn=$id('addBtn'),exportBtn=$id('exportBtn'),importBtn=$id('importBtn'),importFile=$id('importFile'),resetBtn=$id('resetBtn'),eraLabel=$id('eraLabel'),themeMeta=$id('themeMeta'),
+mxPct=$id('mxPct'),mxBar=$id('mxBar'),nextCounter=$id('nextCounter'),nextReading=$id('nextReading'),homeTimeline=$id('homeTimeline'),archiveCount=$id('archiveCount'),archives=$id('archives'),
+dnaGrid=$id('dnaGrid'),mutantNetwork=$id('mutantNetwork'),cerebroAnalysis=$id('cerebroAnalysis'),buyModeBar=$id('buyModeBar'),vaultStats=$id('vaultStats'),vaultStage=$id('vaultStage'),
+vaultOwnedOnly=$id('vaultOwnedOnly'),vaultBookOverlay=$id('vaultBookOverlay'),vaultBookFocus=$id('vaultBookFocus');
+
 function save(){localStorage.setItem(OWN,JSON.stringify(owned));localStorage.setItem(LIST,JSON.stringify(items));localStorage.setItem(META,JSON.stringify(meta))}
 function M(id){return meta[id]||(meta[id]={read:false,fav:false,priority:false,ordered:false,price:0,retail:0,cover:'',isbn:'',edition:'',pages:'',shop:'',date:'',condition:'',duplicate:''})}
+
+function coverHTML(x){
+ const m=M(x.id),src=(m.cover||'').trim();
+ const fb=`<div class="missingCover"><span>X</span><small>${esc(x.period||'')}</small></div>`;
+ return src?`<img src="${esc(src)}" alt="${esc(x.title)}" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">${fb.replace('class="missingCover"','class="missingCover" style="display:none"')}`:fb
+}
+
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 function applyTheme(e){if(!THEMES[e])return;currentEra=e;let t=THEMES[e],r=document.documentElement.style;r.setProperty('--bg',t[0]);r.setProperty('--bg2',t[1]);r.setProperty('--card',t[2]);r.setProperty('--accent',t[3]);r.setProperty('--accent2',t[4]);eraLabel.textContent=e.toUpperCase();themeMeta.setAttribute('content',t[0])}
-function stats(){let total=items.length,o=items.filter(x=>owned[x.id]).length,rd=items.filter(x=>M(x.id).read).length,ord=items.filter(x=>M(x.id).ordered).length,f=items.filter(x=>M(x.id).fav).length,spent=items.reduce((a,x)=>a+(owned[x.id]?+M(x.id).price||0:0),0);sOwned.textContent=o+'/'+total;sRead.textContent=rd+'/'+total;sSpent.textContent=spent.toLocaleString('fr-FR')+' €';sAvg.textContent=(o?spent/o:0).toLocaleString('fr-FR',{maximumFractionDigits:2})+' €';cOwned.textContent=Math.round(o/total*100)+'%';cRead.textContent=Math.round(rd/total*100)+'%';cOrdered.textContent=ord;cFav.textContent=f;renderEras();let groups=groupStats().sort((a,b)=>b.owned/b.total-a.owned/a.total),g=groups.find(x=>x.owned<x.total)||groups[0];nearComplete.textContent=g?g.name+' — '+g.owned+'/'+g.total:'—';nearInfo.textContent=g&&g.owned<g.total?(g.total-g.owned)+' album(s) manquant(s) pour compléter cette époque.':'Collection complète.'}
+function stats(){
+ const total=items.length,own=items.filter(x=>owned[x.id]).length,read=items.filter(x=>M(x.id).read).length;
+ const spent=items.reduce((a,x)=>a+(owned[x.id]?(+M(x.id).price||0):0),0);return {total,own,read,spent}
+}
 function groupStats(){return [...new Set(items.map(x=>x.era))].map(name=>{let a=items.filter(x=>x.era===name);return{name,total:a.length,owned:a.filter(x=>owned[x.id]).length,read:a.filter(x=>M(x.id).read).length}})}
-function renderEras(){let h=groupStats().map(g=>`<div class="eraRow"><div class="eraTop"><span>${esc(g.name)}</span><span>${g.owned}/${g.total} · ${g.read} lus</span></div><div class="bar"><i style="width:${g.total?g.owned/g.total*100:0}%"></i></div></div>`).join('');eraProgress.innerHTML=h;cerebroEras.innerHTML=h}
+function renderEras(){return groupStats()}
 function match(x){let m=M(x.id),q=search.value.toLowerCase(),hay=(x.title+' '+x.period+' '+x.series+' '+x.fmt+' '+x.note+' '+m.isbn+' '+m.edition).toLowerCase(),ok=!q||hay.includes(q);if(filter==='missing')ok=ok&&!owned[x.id]&&!m.ordered;else if(filter==='ordered')ok=ok&&m.ordered;else if(filter==='owned')ok=ok&&owned[x.id];else if(filter==='unread')ok=ok&&owned[x.id]&&!m.read;else if(filter==='fav')ok=ok&&m.fav;return ok}
 function renderList(){list.innerHTML='';let last='';items.forEach((x,i)=>{if(!match(x))return;if(x.era!==last){list.insertAdjacentHTML('beforeend',renderEraChapter(x.era));last=x.era}let m=M(x.id),c=document.createElement('article');c.className='card';c.dataset.era=x.era;const oo=buyMode?ownedOverlap(x):null;c.innerHTML=`<div class="row"><label><input type="checkbox" data-own="${x.id}" ${owned[x.id]?'checked':''}><span class="check"></span></label><div data-detail="${x.id}"><div class="meta"><span class="tag year">#${String(i+1).padStart(3,'0')}</span><span class="tag year">${esc(x.period)}</span><span class="tag">${esc(x.series)}</span></div><div class="title">${esc(x.title)}</div><div class="fmt">${esc(x.fmt)}</div>${buyMode?`<div class="note"><b>${m.isbn?'EAN '+esc(m.isbn):'EAN à compléter'}</b>${oo&&oo.total?` · ${oo.pct}% inédit pour toi`:''}</div>`:''}${(m.edition||m.pages||m.isbn)&&!buyMode?`<div class="note">Panini ${esc(m.edition||'—')} · ${esc(m.pages||'—')} p.${m.isbn?' · EAN '+esc(m.isbn):''}</div>`:''}${x.contentSpec&&!buyMode?`<div class="note">✓ Contenu US indexé</div>`:''}${x.note&&!buyMode?`<div class="note">${esc(x.note)}</div>`:''}${!buyMode?`<div class="pills"><button class="pill ${m.read?'on':''}" data-act="read" data-id="${x.id}">📖 Lu</button><button class="pill ${m.priority?'on':''}" data-act="priority" data-id="${x.id}">🎯 Prioritaire</button><button class="pill ${m.ordered?'on':''}" data-act="ordered" data-id="${x.id}">📦 Commandé</button><button class="pill ${m.fav?'on':''}" data-act="fav" data-id="${x.id}">♥</button><button class="pill" data-act="price" data-id="${x.id}">€ ${m.price||'Prix'}</button></div>`:''}</div>${!buyMode?`<div class="tools"><button class="mini" data-act="edit" data-id="${x.id}">✎</button></div>`:''}</div>`;list.appendChild(c)});wire();observeEras()}
 function renderGrid(){grid.innerHTML='';items.filter(x=>libFilter==='owned'?owned[x.id]:libFilter==='missing'?!owned[x.id]:M(x.id).fav).forEach(x=>{let b=document.createElement('div');b.className='book';b.dataset.detail=x.id;b.innerHTML=`<div class="cover">${coverHTML(x)}</div><div class="bookinfo"><b>${esc(x.title)}</b><span>#${String(items.indexOf(x)+1).padStart(3,'0')} · ${esc(x.period)}</span></div>`;grid.appendChild(b)});document.querySelectorAll('[data-detail]').forEach(e=>e.onclick=ev=>{if(ev.target.closest('button'))return;openDetail(e.dataset.detail)})}
 function wire(){document.querySelectorAll('[data-own]').forEach(e=>e.onchange=()=>{owned[e.dataset.own]=e.checked;if(e.checked)M(e.dataset.own).ordered=false;checkArcCompletion(e.dataset.own);save();renderAll()});document.querySelectorAll('[data-act]').forEach(b=>b.onclick=e=>{e.stopPropagation();act(b.dataset.act,b.dataset.id)});document.querySelectorAll('[data-detail]').forEach(e=>e.onclick=ev=>{if(ev.target.closest('button'))return;openDetail(e.dataset.detail)})}
 function act(a,id){let i=items.findIndex(x=>x.id===id),m=M(id);if(a==='read')m.read=!m.read;else if(a==='priority')m.priority=!m.priority;else if(a==='ordered')m.ordered=!m.ordered;else if(a==='fav')m.fav=!m.fav;else if(a==='price'){priceId.value=id;priceInput.value=m.price||'';retailInput.value=m.retail||'';priceModal.classList.add('open');return}else if(a==='copy'){copyId.value=id;shopInput.value=m.shop||'';dateInput.value=m.date||'';conditionInput.value=m.condition||'';copyModal.classList.add('open');return}else if(a==='edit'){openEdit(id);return}else if(a==='delete'){if(confirm('Supprimer ce titre ?'))items.splice(i,1)}else if(a==='up'&&i>0)[items[i-1],items[i]]=[items[i],items[i-1]];else if(a==='down'&&i<items.length-1)[items[i+1],items[i]]=[items[i],items[i+1]];save();renderAll()}
-function openDetail(id){let x=items.find(z=>z.id===id),m=M(id),saving=m.retail&&m.price?m.retail-m.price:0;detailIndex=items.indexOf(x);detailContent.innerHTML=`<div class="detailNav"><button id="prevDetail">← Précédent</button><button id="nextDetail">Suivant →</button></div><div class="detailCover">${coverHTML(x)}</div><h2>#${String(detailIndex+1).padStart(3,'0')} · ${esc(x.title)}</h2><div class="pills"><span class="pill ${owned[id]?'on':''}">✓ Possédé</span><span class="pill ${m.read?'on':''}">📖 Lu</span><span class="pill ${m.ordered?'on':''}">📦 Commandé</span><span class="pill ${m.fav?'on':''}">♥ Favori</span></div><button class="btn scanBtn" onclick="doScan('${id}')">◎ CEREBRO SCAN</button><div id="scanHost"></div><div class="detailBlock"><h3>Édition</h3><p>${esc(x.fmt)}</p><p>ISBN / EAN : ${esc(m.isbn||'—')}</p><p>Année d’édition : ${esc(m.edition||'—')} · Pages : ${esc(m.pages||'—')}</p></div><div class="detailBlock"><h3>Mon exemplaire</h3><p>Prix payé : ${m.price?m.price+' €':'—'} ${m.retail?'· Catalogue : '+m.retail+' €':''}</p>${saving>0?`<p>Économie : ${saving.toFixed(2)} €</p>`:''}<p>${esc(m.shop||'Lieu non renseigné')} ${m.date?'· '+esc(m.date):''}</p><p>État : ${esc(m.condition||'—')}</p></div><div class="detailBlock"><h3>Contenu US</h3><p>${x.contentSpec?esc(x.contentSpec).replace(/\n/g,'<br>'):'—'}</p></div>${eraProgressHTML(x)}<div class="detailBlock"><h3>Notes</h3><p>${esc(x.note||'—')}</p></div>`;detailModal.classList.add('open');const sh=detailModal.querySelector('.sheet');sh.scrollTop=0;prevDetail.onclick=()=>openDetail(items[(detailIndex-1+items.length)%items.length].id);nextDetail.onclick=()=>openDetail(items[(detailIndex+1)%items.length].id)}
+function openDetail(id){
+ const x=items.find(z=>z.id===id);if(!x)return;const m=M(id),saving=m.retail&&m.price?m.retail-m.price:0;detailIndex=items.indexOf(x);
+ detailContent.innerHTML=`<div class="detailNav"><button data-detail-prev>← Précédent</button><button data-detail-next>Suivant →</button></div><div class="detailCover">${coverHTML(x)}</div><h2>#${String(detailIndex+1).padStart(3,'0')} · ${esc(x.title)}</h2><div class="pills"><span class="pill ${owned[id]?'on':''}">✓ Possédé</span><span class="pill ${m.read?'on':''}">📖 Lu</span><span class="pill ${m.ordered?'on':''}">📦 Commandé</span><span class="pill ${m.fav?'on':''}">♥ Favori</span></div><button class="btn scanBtn" data-scan="${id}">◎ CEREBRO SCAN</button><div id="scanHost"></div><div class="detailBlock"><h3>Édition</h3><p>${esc(x.fmt)}</p><p>ISBN / EAN : ${esc(m.isbn||'—')}</p><p>Année d’édition : ${esc(m.edition||'—')} · Pages : ${esc(m.pages||'—')}</p></div><div class="detailBlock"><h3>Mon exemplaire</h3><p>Prix payé : ${m.price?m.price+' €':'—'} ${m.retail?'· Catalogue : '+m.retail+' €':''}</p>${saving>0?`<p>Économie : ${saving.toFixed(2)} €</p>`:''}<p>${esc(m.shop||'Lieu non renseigné')} ${m.date?'· '+esc(m.date):''}</p><p>État : ${esc(m.condition||'—')}</p></div><div class="detailBlock"><h3>Contenu US</h3><p>${x.contentSpec?esc(x.contentSpec).replace(/\n/g,'<br>'):'—'}</p></div>${eraProgressHTML(x)}<div class="detailBlock"><h3>Notes</h3><p>${esc(x.note||'—')}</p></div>`;
+ detailModal.classList.add('open');const sh=detailModal.querySelector('.sheet');if(sh)sh.scrollTop=0;detailContent.querySelector('[data-detail-prev]').onclick=()=>openDetail(items[(detailIndex-1+items.length)%items.length].id);detailContent.querySelector('[data-detail-next]').onclick=()=>openDetail(items[(detailIndex+1)%items.length].id);detailContent.querySelector('[data-scan]').onclick=e=>doScan(e.currentTarget.dataset.scan)
+}
 function openEdit(id=''){let x=id?items.find(z=>z.id===id):null,m=id?M(id):{};eid.value=id;etitle.value=x?.title||'';eperiod.value=x?.period||'';eseries.value=x?.series||'';efmt.value=x?.fmt||'';epriority.value=x?.priority||'Essentiel';eera.value=x?.era||currentEra;ecover.value=m.cover||'';eisbn.value=m.isbn||'';eedition.value=m.edition||'';epages.value=m.pages||'';enote.value=x?.note||'';eduplicate.value=m.duplicate||'';editModal.classList.add('open')}
 function saveEditFn(){if(!etitle.value.trim())return alert('Titre requis');let id=eid.value||('custom_'+Date.now()),obj={id,title:etitle.value.trim(),period:eperiod.value.trim(),series:eseries.value.trim(),fmt:efmt.value.trim(),priority:epriority.value,note:enote.value.trim(),status:'OK',era:eera.value};if(eid.value){let i=items.findIndex(x=>x.id===id);items[i]=obj}else items.push(obj);Object.assign(M(id),{cover:ecover.value.trim(),isbn:eisbn.value.trim(),edition:eedition.value.trim(),pages:epages.value.trim(),duplicate:eduplicate.value.trim()});save();closeModalAnimated(editModal);renderAll()}
 let eraObserver=null;
 function observeEras(){if(eraObserver)eraObserver.disconnect();eraObserver=new IntersectionObserver(es=>{const v=es.find(e=>e.isIntersecting);if(v)applyTheme(v.target.dataset.era)},{rootMargin:'-30% 0px -60% 0px',threshold:0});document.querySelectorAll('.era-anchor').forEach(e=>eraObserver.observe(e))}
-function renderAll(){stats();renderList();renderGrid();renderHomeModern();renderCerebroModern();renderVault();requestAnimationFrame(addStagger)}
+function renderAll(){stats();renderList();renderHomeModern();renderCerebroModern();renderVault();requestAnimationFrame(addStagger)}
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>switchViewAnimated(b.dataset.view));
-search.oninput=renderList;document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-f]').forEach(x=>x.classList.remove('on'));b.classList.add('on');filter=b.dataset.f;renderList()});document.querySelectorAll('.libfilter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.libfilter').forEach(x=>x.classList.remove('on'));b.classList.add('on');libFilter=b.dataset.lf;renderGrid()});
-editBtn.onclick=()=>{editing=!editing;document.body.classList.toggle('editing',editing);editBtn.textContent=editing?'✓':'✎'};addBtn.onclick=()=>openEdit();closeDetail.onclick=()=>closeModalAnimated(detailModal);cancelEdit.onclick=()=>closeModalAnimated(editModal);saveEdit.onclick=saveEditFn;cancelPrice.onclick=()=>closeModalAnimated(priceModal);savePrice.onclick=()=>{let m=M(priceId.value);m.price=parseFloat(priceInput.value)||0;m.retail=parseFloat(retailInput.value)||0;save();closeModalAnimated(priceModal);renderAll()};cancelCopy.onclick=()=>closeModalAnimated(copyModal);saveCopy.onclick=()=>{let m=M(copyId.value);m.shop=shopInput.value.trim();m.date=dateInput.value;m.condition=conditionInput.value;save();closeModalAnimated(copyModal);renderAll()};
+search.oninput=renderList;document.querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-f]').forEach(x=>x.classList.remove('on'));b.classList.add('on');filter=b.dataset.f;renderList()});editBtn.onclick=()=>{editing=!editing;document.body.classList.toggle('editing',editing);editBtn.textContent=editing?'✓':'✎'};addBtn.onclick=()=>openEdit();closeDetail.onclick=()=>closeModalAnimated(detailModal);cancelEdit.onclick=()=>closeModalAnimated(editModal);saveEdit.onclick=saveEditFn;cancelPrice.onclick=()=>closeModalAnimated(priceModal);savePrice.onclick=()=>{let m=M(priceId.value);m.price=parseFloat(priceInput.value)||0;m.retail=parseFloat(retailInput.value)||0;save();closeModalAnimated(priceModal);renderAll()};cancelCopy.onclick=()=>closeModalAnimated(copyModal);saveCopy.onclick=()=>{let m=M(copyId.value);m.shop=shopInput.value.trim();m.date=dateInput.value;m.condition=conditionInput.value;save();closeModalAnimated(copyModal);renderAll()};
 exportBtn.onclick=()=>{let blob=new Blob([JSON.stringify({version:5,items,owned,meta},null,2)],{type:'application/json'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='cerebro-sauvegarde-v5.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};importBtn.onclick=()=>importFile.click();importFile.onchange=async e=>{try{let d=JSON.parse(await e.target.files[0].text());items=d.items;owned=d.owned||{};meta=d.meta||{};save();renderAll()}catch(_){alert('Sauvegarde invalide')}};resetBtn.onclick=()=>{if(confirm('Restaurer la liste d’origine ?')){items=clone(BASE);save();renderAll()}};
 load();
 migrateCatalogue();
@@ -593,12 +633,11 @@ if(localStorage.getItem(VERIFIED_SEED_KEY)!=='done'){
 }
 
 lastOwnedSnapshot={...owned};rebuildOverlapCache();
-document.getElementById('continueBtn').onclick=()=>{const n=nextUnread();if(n)openDetail(n.id)};
-document.getElementById('buyModeHome').onclick=()=>setBuyMode(true);
-document.getElementById('exitBuyMode').onclick=()=>setBuyMode(false);
-document.getElementById('shelfToggle').onclick=()=>{shelfMode=!shelfMode;grid.classList.toggle('shelf',shelfMode);shelfToggle.textContent=shelfMode?'Couvertures':'Étagère'};
-detailModal.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].screenX},{passive:true});
-detailModal.addEventListener('touchend',e=>{if(!detailModal.classList.contains('open'))return;const dx=e.changedTouches[0].screenX-touchX;if(Math.abs(dx)>70){if(dx>0)openDetail(items[(detailIndex-1+items.length)%items.length].id);else openDetail(items[(detailIndex+1)%items.length].id)}},{passive:true});
+const _continue=$id('continueBtn');if(_continue)_continue.onclick=()=>{const n=nextUnread();if(n)openDetail(n.id)};
+const _buy=$id('buyModeHome');if(_buy)_buy.onclick=()=>setBuyMode(true);
+const _exitBuy=$id('exitBuyMode');if(_exitBuy)_exitBuy.onclick=()=>setBuyMode(false);
+detailModal.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].screenX;touchY=e.changedTouches[0].screenY},{passive:true});
+detailModal.addEventListener('touchend',e=>{if(!detailModal.classList.contains('open'))return;const dx=e.changedTouches[0].screenX-touchX,dy=e.changedTouches[0].screenY-touchY;if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.25){if(dx>0)openDetail(items[(detailIndex-1+items.length)%items.length].id);else openDetail(items[(detailIndex+1)%items.length].id)}},{passive:true});
 
 applyTheme(items[0]?.era||'Claremont');renderAll();
 </script></body></html>
