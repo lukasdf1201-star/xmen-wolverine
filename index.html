@@ -8,7 +8,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#f3c600" id="themeMeta">
-<title>CEREBRO V1.0 CINEMATIC RC1 — X-Men + Wolverine</title><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=04">
+<title>CEREBRO V1.0 LOCKED RC1 — X-Men + Wolverine</title><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=04">
 <style>
 :root{--bg:#f3c600;--bg2:#ffd928;--ink:#07101d;--card:#071b3d;--accent:#1261c9;--accent2:#f3c600;--muted:#b9c7db;--white:#f8fbff;--danger:#d84a3a}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial;color:var(--ink);transition:background .55s ease}
@@ -328,8 +328,112 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 #settingsView .heroCard:first-child:before{content:"CEREBRO // SYSTEM";display:block;color:#66b4ff;font-size:9px;letter-spacing:.2em;margin-bottom:8px}
 @media(max-width:600px){.view{padding-left:12px!important;padding-right:12px!important}.mxHero{min-height:370px!important}.mxHero:after{top:35px}.vaultEraBg{height:190px!important}.vaultModes{top:55px}.card{margin:9px 0!important}}
 </style>
-</head><body><div id="saveToast"><b>✓</b> Sauvegardé</div><div id="updatePill"><b>V1.0</b><button id="forceRefreshBtn">Actualiser</button></div><div id="buildBadge">V1.0 CINEMATIC</div>
-<header><div class="brand"><div class="logo"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="#f3c600" stroke-width="8"/><path d="M28 24 L50 45 L72 24 L78 31 L57 51 L78 71 L72 78 L50 57 L28 78 L22 71 L43 51 L22 31 Z" fill="#f3c600"/></svg></div><div><h1>Cerebro</h1><div class="kicker">X-MEN + WOLVERINE · V1.0 CINEMATIC</div></div></div><span id="eraLabel">CLAREMONT</span></header>
+
+<style id="concept-exact-v1">
+:root{
+ --bg:#020713!important;--bg2:#061126!important;--card:#07162e!important;--text:#eef6ff!important;
+ --muted:#7894b5!important;--accent:#1e7ee8!important;--accent2:#ffd447!important;
+ --glass:#061225e8;--stroke:#417fc250;--blue:#68b7ff;
+}
+*{box-sizing:border-box}
+html,body{background:#020713!important;color:#eef6ff!important}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",sans-serif!important}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background:
+ radial-gradient(circle at 50% -10%,#164f9548,transparent 35%),
+ linear-gradient(180deg,#020611 0%,#061329 48%,#020611 100%)}
+body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+ linear-gradient(#4b92df0a 1px,transparent 1px),linear-gradient(90deg,#4b92df0a 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(#0008,transparent 90%)}
+.topbar{height:58px!important;background:#020713ee!important;border-bottom:1px solid #367aca5a!important;box-shadow:0 8px 24px #0007!important}
+.brand b{font-size:20px!important;letter-spacing:.18em!important}.brand small{font-size:7px!important;letter-spacing:.34em!important;color:#66b7ff!important}
+.tabs{height:66px!important;background:#020713f5!important;border-top:1px solid #397cc851!important;box-shadow:0 -8px 24px #0007!important;padding-bottom:env(safe-area-inset-bottom)}
+.tabs button{font-size:9px!important;text-transform:uppercase!important;letter-spacing:.06em!important;color:#6884a4!important}
+.tabs button i{font-size:19px!important}.tabs button.active{color:#f8fbff!important;text-shadow:0 0 12px #62b4ff}.tabs button.active i{filter:drop-shadow(0 0 7px #52a7ff)}
+.view{padding:12px!important;max-width:600px!important;margin:0 auto!important}
+.mxHero{min-height:520px!important;border:1px solid var(--stroke)!important;border-radius:22px!important;background:
+ linear-gradient(180deg,#03122c99,#020713 82%),
+ url('artworks/cerebro-home.jpg') center 12%/cover no-repeat!important;
+ box-shadow:0 25px 80px #000b,inset 0 1px #ffffff0c!important;position:relative!important;overflow:hidden!important;padding:0 18px 22px!important}
+.mxHero:before{content:"";position:absolute;inset:0!important;background:
+ radial-gradient(circle at 50% 28%,#64c6ffb0 0 2px,#1b76c8 3px 5px,transparent 6px),
+ repeating-radial-gradient(circle at 50% 28%,transparent 0 28px,#4ca8ff22 29px 30px,transparent 31px 50px)!important;
+ mask-image:linear-gradient(#000 0%,#000 56%,transparent 75%)!important}
+.mxHero:after{content:"CEREBRO";position:absolute!important;left:50%!important;top:180px!important;transform:translateX(-50%)!important;width:auto!important;height:auto!important;border:0!important;border-radius:0!important;font:800 40px/1 Arial!important;letter-spacing:.03em;color:#f0f7ff!important;text-shadow:0 0 24px #66b7ff!important;box-shadow:none!important}
+.mxHero h2{font-size:0!important;margin-top:auto!important}
+.mxHero h2:after{content:"X-MEN COLLECTION"!important;display:block!important;font-size:9px!important;letter-spacing:.44em!important;color:#59adff!important;margin:0 auto 16px!important;text-align:center!important}
+.mxHero p{text-align:center!important;margin:0 auto 18px!important;color:#92abc6!important;max-width:320px!important;font-size:12px!important}
+.mxEyebrow{text-align:center!important;color:#60b6ff!important}
+.mxProgress{background:#06152cd6!important;border:1px solid #3778c64b!important;border-radius:15px!important;padding:13px!important}
+.mxTrack{height:3px!important;background:#102746!important}.mxTrack i{background:linear-gradient(90deg,#1878df,#68c4ff)!important;box-shadow:0 0 12px #3fa5ff!important}
+.mxActions{gap:8px!important}.mxAction{border:1px solid #3978c247!important;background:#07182fe8!important;color:#eef6ff!important;border-radius:12px!important}.mxAction.primary{background:#0c2d58!important;color:#fff!important;border-color:#488dd35e!important}
+.mxSection{background:transparent!important;padding:16px 2px!important}.mxSectionHead h3{font-size:14px!important;letter-spacing:.12em!important;text-transform:uppercase!important}
+.nextBook{background:#07152ce8!important;border:1px solid #3f7bc24a!important;border-radius:15px!important;box-shadow:0 14px 30px #0007!important}
+.nextBook .cover{width:62px!important;min-width:62px!important;height:86px!important;box-shadow:0 10px 20px #000b!important}
+.nextBook h4{font-size:14px!important}.timeNode{background:#06152b!important;border:1px solid #377bc34a!important;color:#d8eaff!important;border-radius:11px!important;padding:8px!important}
+
+#listView .toolbar{background:#06152bd9!important;border:1px solid #3477bd40!important;border-radius:16px!important;padding:8px!important}
+#search{background:#020b18!important;border:1px solid #356fba48!important;color:#fff!important}
+.era-anchor{min-height:145px!important;border-radius:18px!important;background:linear-gradient(180deg,#0b2a50,#041022)!important;border:1px solid #3d7fc84e!important;box-shadow:0 16px 40px #0007!important}
+.card{border-radius:14px!important;background:linear-gradient(120deg,#07162d,#030915)!important;border:1px solid #3473b64b!important;box-shadow:0 10px 26px #0006!important;margin:8px 0!important;padding:11px!important}
+.card.owned{background:linear-gradient(120deg,#030912,#010409)!important}
+.card .title{font-size:15px!important;font-weight:760!important}.card .fmt{font-size:9px!important;color:#79a0c4!important}
+.card .tag{background:#0b315f!important;border:1px solid #3c7dc055!important;color:#b9d9fa!important}
+.card .pill{background:#07182d!important;border:1px solid #376fae48!important;color:#bad5ed!important}.card .pill.on{color:#fff!important;border-color:#4e9deb77!important}
+.ownedClaws{opacity:.92!important}
+
+#libraryView{padding:12px!important}.vaultHero{min-height:155px!important;border-radius:18px!important;background:#06152e!important;border:1px solid #387bc54d!important;padding:18px!important}
+.vaultHero h2{font-size:30px!important;line-height:1!important;letter-spacing:.06em!important}.vaultHero h2 br{display:none}.vaultHero h2:after{content:"X-VAULT";display:block;font-size:8px;color:#59b4ff;letter-spacing:.4em;margin-top:6px}
+.vaultHero p{font-size:10px!important}.vaultStats{gap:6px!important}.vaultStat{background:#031024!important;border:1px solid #356fae42!important}.vaultStat b{font-size:17px!important}
+.vaultModes{background:#020b18!important;border:1px solid #397ac64c!important;border-radius:12px!important;padding:4px!important;position:sticky!important;top:58px!important;z-index:30!important}
+.vaultMode{font-size:9px!important;background:transparent!important;border:0!important;color:#7895b7!important}.vaultMode.on{background:#0b3b72!important;color:#fff!important;box-shadow:0 0 16px #2689ff3a!important}
+.vaultEra{border-radius:18px!important;background:#020914!important;border:1px solid #3a79be48!important;overflow:hidden!important;box-shadow:0 18px 45px #0008!important;margin:16px 0!important}
+.vaultEraBg{height:200px!important;opacity:1!important}.vaultTeamArt{width:100%!important;max-width:none!important;height:100%!important;right:0!important;bottom:0!important;opacity:.9!important;object-fit:cover!important;object-position:center 35%!important;filter:saturate(.86) contrast(1.08) brightness(.7)!important;mix-blend-mode:normal!important}
+.vaultEraBg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,#020914 100%)}
+.vaultEraHead{margin-top:-80px!important;position:relative!important;padding:25px 16px 12px!important;background:linear-gradient(transparent,#020914 55%)!important}.vaultEraHead h3{font-size:19px!important;letter-spacing:.12em!important}.vaultEraHead small{font-size:8px!important;color:#6cb9ff!important}
+.shelfScene{background:#020914!important}.shelfBooks{min-height:220px!important;border-bottom:8px solid #111c2a!important;box-shadow:0 7px 0 #000,0 14px 30px #000b!important;padding:18px 10px 24px!important}.vbook{height:200px!important;width:34px!important;border-radius:2px!important;background:linear-gradient(90deg,#0d2344,#071126 55%,#183a69)!important}.vbook:nth-child(3n){height:210px!important}.vbook:nth-child(4n){height:193px!important}.vbook.omnibus{width:48px!important;height:215px!important}.vbook.deluxe{width:40px!important}.vbook.integrale{width:37px!important}
+.vbook.missing{background:transparent!important;border:1px dashed #3e78b855!important}
+.vbook.read:before{background:#4ce77a!important;color:#04100a!important}
+.vaultGallery{grid-template-columns:repeat(3,1fr)!important;gap:10px!important}.vgCard{border-radius:10px!important;border:1px solid #397cc04d!important;box-shadow:0 12px 28px #0008!important}.vgMeta{font-size:7px!important}.vgMeta b{font-size:9px!important}
+.vaultTimeline{background:#020914!important;border-radius:16px!important}.vtEra{border-bottom:1px solid #2c609941!important}.vtYear{color:#68b7ff!important}
+
+#cerebroView{padding:12px!important}.cerebroHero{min-height:185px!important;border-radius:18px!important;background:
+ linear-gradient(180deg,#031028aa,#020713 90%),
+ url('artworks/mutants-grid.jpg') center/cover no-repeat!important;border:1px solid #397dc64d!important}
+.cerebroHero h2{font-size:30px!important;letter-spacing:.12em!important}.cerebroHero p{max-width:290px!important;color:#9bb4cf!important}
+.dnaGrid{grid-template-columns:repeat(2,1fr)!important}.dnaCard{background:#06152c!important;border:1px solid #397bc148!important}.dnaCard strong{font-size:20px!important;color:#71bbff!important}
+.network{min-height:260px!important;border-radius:18px!important;background:radial-gradient(circle at 50% 50%,#103d72,#020713 68%)!important;border:1px solid #397cc64b!important;box-shadow:inset 0 0 55px #000b!important}
+.network .node{background:#071a34e8!important;border:1px solid #4b95d85c!important;color:#fff!important}.network .node.main{background:#0d447d!important}
+.mutantGallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.mutantCard{position:relative;aspect-ratio:.88;border:1px solid #3a7ac24e;border-radius:12px;overflow:hidden;background:#06152b;color:#fff}.mutantCard img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.06)}.mutantCard span{position:absolute;left:7px;right:7px;bottom:7px;padding-top:20px;background:linear-gradient(transparent,#020713dd);font-size:9px;font-weight:850;text-transform:uppercase}
+.mutantFocus{margin-top:16px;border:1px solid #3b7bc44d;border-radius:18px;overflow:hidden;background:#030a18;display:none}.mutantFocus.open{display:block}.mutantHero{height:230px;position:relative}.mutantHero img{width:100%;height:100%;object-fit:cover}.mutantHero:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 25%,#030a18 95%)}.mutantFocusBody{padding:0 14px 16px;margin-top:-40px;position:relative}.mutantFocusBody h3{font-size:24px;margin:0}.mutantFocusBody small{color:#69b7ff;letter-spacing:.12em}
+
+.sheet{border-radius:22px 22px 0 0!important;background:#020713!important;border:1px solid #3d7dc54d!important;box-shadow:0 -25px 80px #000d!important}.detailNav{background:#06152bdc!important;border:1px solid #397bc34d!important;border-radius:11px!important;backdrop-filter:blur(14px)}.detailCover{max-width:180px!important;margin:8px auto 14px!important;box-shadow:0 18px 40px #000b!important}.detailBlock{background:#06152b!important;border:1px solid #3779bf48!important;border-radius:13px!important;color:#dcecff!important}.detailBlock h3{font-size:10px!important;letter-spacing:.12em!important;color:#6bb8ff!important;text-transform:uppercase!important}
+#settingsView .heroCard{background:#06152b!important;border:1px solid #397bc34a!important}.healthCard{background:#06152b!important;border-color:#397bc34a!important}
+@media(max-width:390px){.mxHero{min-height:500px!important}.vaultGallery{grid-template-columns:repeat(2,1fr)!important}.mutantGallery{grid-template-columns:repeat(3,1fr)!important}}
+</style>
+
+<style id="locked-invariants">
+.card.owned{position:relative!important;background:linear-gradient(145deg,#02060d,#06101f 72%,#010308)!important;filter:saturate(.72) brightness(.78)!important;border-color:#263d5b!important}
+.card.owned .title,.card.owned .fmt,.card.owned .note{opacity:.72}
+.card.owned .ownedClaws{display:block!important;opacity:1!important}
+.ownedClaws{position:absolute!important;right:10px!important;top:10px!important;width:48px!important;height:40px!important;z-index:12!important;pointer-events:none!important}
+.ownedClaws i{position:absolute!important;left:4px!important;width:40px!important;height:2px!important;background:linear-gradient(90deg,transparent,#fff 25%,#ffd447 55%,#fff 78%,transparent)!important;filter:drop-shadow(0 0 5px #ffd447)!important;transform:rotate(-18deg)!important}
+.ownedClaws i:nth-child(1){top:8px!important}.ownedClaws i:nth-child(2){top:19px!important}.ownedClaws i:nth-child(3){top:30px!important}
+.card.justOwned .ownedClaws i{animation:lockedSlash .62s cubic-bezier(.16,1,.3,1) both!important}
+.card.justOwned .ownedClaws i:nth-child(2){animation-delay:.05s!important}.card.justOwned .ownedClaws i:nth-child(3){animation-delay:.1s!important}
+@keyframes lockedSlash{0%{transform:translateX(-80px) rotate(-18deg)!important;opacity:0}30%{opacity:1}100%{transform:translateX(0) rotate(-18deg)!important;opacity:1}}
+.mutantMenuTitle{margin:16px 2px 8px;font-size:9px;font-weight:900;letter-spacing:.18em;color:#65b7ff}
+.mutantGallery{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important}
+.mutantCard{display:block!important;min-width:0!important;aspect-ratio:.82!important;border-radius:13px!important;overflow:hidden!important;border:1px solid #397cc65c!important;background:#06152b!important;box-shadow:0 10px 24px #0007!important}
+.mutantCard img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important}
+.vaultEraBg{display:block!important;position:relative!important;height:210px!important;overflow:hidden!important;background:#041022!important}
+.vaultEraBg .vaultTeamArt{display:block!important;position:absolute!important;inset:0!important;width:100%!important;max-width:none!important;height:100%!important;object-fit:cover!important;object-position:center 28%!important;opacity:.82!important;filter:saturate(.9) contrast(1.08) brightness(.72)!important}
+.vbook{position:relative!important;overflow:hidden!important;border-left:1px solid #ffffff20!important;border-right:1px solid #000b!important;box-shadow:inset 5px 0 8px #ffffff08,inset -7px 0 10px #0008,5px 6px 10px #0009!important}
+.vbook:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#fff0,#ffffff10 22%,#fff0 42%,#0004 78%,#0007)!important;mix-blend-mode:screen}
+.vbook:not(.missing):hover,.vbook:not(.missing):active{transform:translateY(-10px) rotate(-1deg)!important;filter:brightness(1.16)!important;z-index:5}
+.vaultEra.inview .vaultTeamArt{animation:eraReveal 1s cubic-bezier(.16,1,.3,1) both}
+@keyframes eraReveal{from{transform:scale(1.08);opacity:.35}to{transform:scale(1);opacity:.82}}
+</style>
+</head><body><div id="saveToast"><b>✓</b> Sauvegardé</div><div id="updatePill"><b>V1.0</b><button id="forceRefreshBtn">Actualiser</button></div><div id="buildBadge">V1.0 LOCKED</div>
+<header><div class="brand"><div class="logo"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="#f3c600" stroke-width="8"/><path d="M28 24 L50 45 L72 24 L78 31 L57 51 L78 71 L72 78 L50 57 L28 78 L22 71 L43 51 L22 31 Z" fill="#f3c600"/></svg></div><div><h1>Cerebro</h1><div class="kicker">X-MEN + WOLVERINE · V1.0 LOCKED</div></div></div><span id="eraLabel">CLAREMONT</span></header>
 
 
 <section id="homeView" class="view active">
@@ -371,7 +475,7 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 </section>
 <section id="settingsView" class="view"><div class="heroCard" style="text-align:center;margin:16px 0 18px"><small>CEREBRO X-MEN COLLECTION</small><b style="font-size:24px">V1.0</b><p style="color:#72baff">« To me, my X-Men. »</p></div><div class="eraProgress"><div class="heroCard"><small>GESTION</small><b>Base Cerebro</b><p>Modifie les fiches depuis la Liste. Les sauvegardes incluent toutes tes données locales.</p></div><button class="btn accent" style="width:100%;margin:6px 0" id="addBtn">＋ Ajouter un comic</button><button class="btn" style="width:100%;margin:6px 0" id="exportBtn">Exporter sauvegarde JSON</button><button class="btn" style="width:100%;margin:6px 0" id="importBtn">Importer sauvegarde JSON</button><input id="importFile" class="hide" type="file" accept=".json,application/json"><button class="btn" style="width:100%;margin:6px 0" id="resetBtn">Restaurer la liste d’origine</button></div></section>
 
-<nav class="tabs"><button class="on" data-view="homeView"><i>⌂</i>Accueil</button><button data-view="listView"><i>☰</i>Liste</button><button data-view="libraryView"><i>▦</i>Bibliothèque</button><button data-view="cerebroView"><i>◎</i>Mutants</button><button data-view="settingsView"><i>⚙︎</i>Réglages</button></nav>
+<nav class="tabs"><button class="on" data-view="homeView"><i>⌂</i>Accueil</button><button data-view="listView"><i>☰</i>Liste</button><button data-view="libraryView"><i>▣</i>Bibliothèque</button><button data-view="cerebroView"><i>✣</i>Mutants</button><button data-view="settingsView"><i>⚙</i>Réglages</button></nav>
 
 <div class="modal" id="detailModal"><div class="sheet"><div id="detailContent"></div><div class="actions"><button class="btn" id="closeDetail">Fermer</button></div></div></div>
 <div class="modal" id="priceModal"><div class="sheet"><h2>Prix payé</h2><input type="hidden" id="priceId"><div class="field"><label>Prix (€)</label><input id="priceInput" type="number" inputmode="decimal" step=".01"></div><div class="field"><label>Prix catalogue (€)</label><input id="retailInput" type="number" inputmode="decimal" step=".01"></div><div class="actions"><button class="btn" id="cancelPrice">Annuler</button><button class="btn yellow" id="savePrice">Enregistrer</button></div></div></div>
@@ -557,6 +661,8 @@ function renderCerebroModern(){
  const nodeDefs=[['X-Men','X-Men','50%','45%','main'],['Wolverine','Wolverine','8%','13%',''],['New Mutants','New Mutants','68%','13%',''],['X-Force','X-Force','6%','76%',''],['X-Factor','X-Factor','68%','76%','']];
  mutantNetwork.innerHTML=`<svg viewBox="0 0 100 100" preserveAspectRatio="none"><g stroke="#4e91ff55" stroke-width=".5">${[[50,48,18,18],[50,48,82,18],[50,48,15,78],[50,48,84,78]].map(a=>`<line x1="${a[0]}" y1="${a[1]}" x2="${a[2]}" y2="${a[3]}"/>`).join('')}</g></svg>`+nodeDefs.map(([label,series,left,top,cls])=>{const item=items.find(x=>(x.series||'').includes(series)&&M(x.id).cover),art=item?M(item.id).cover:'';return `<button class="node ${cls} ${art?'hasArt':''}" style="left:${left};top:${top};${art?`--node-art:url('${esc(art)}')`:''}" data-series="${esc(series)}">${esc(label)}</button>`}).join('');
  mutantNetwork.querySelectorAll('.node').forEach(b=>b.onclick=()=>{gotoView('listView');search.value=b.dataset.series;renderList()});
+ renderMutantGallery();
+ const _mg=document.getElementById('mutantGalleryHost');if(_mg)_mg.style.display='block';
  cerebroAnalysis.innerHTML=`<div class="dnaGrid"><div class="dnaCard"><strong>${indexed}</strong><span>FICHES US INDEXÉES</span></div><div class="dnaCard"><strong>${risky}</strong><span>ACHATS AVEC CHEVAUCHEMENT</span></div></div><div class="heroCard" style="margin-top:12px"><small>CEREBRO CONSEIL</small><b>${risky?'Vérifie les doublons avant achat':'Aucun achat redondant détecté'}</b><p>Le scanner d’une fiche compare son contenu uniquement aux albums que tu possèdes.</p></div>`;
 }
 function renderEraChapter(era){
@@ -606,6 +712,28 @@ function localCharacterArt(name){
 }
 
 
+
+const ERA_TEAM_ART={
+ 'Les Origines':'artworks/team-claremont.jpg',
+ 'L’Âge de Claremont':'artworks/team-claremont.jpg',
+ "L'Âge de Claremont":'artworks/team-claremont.jpg',
+ 'Les Années 90':'artworks/team-90s.jpg',
+ 'Renaissance moderne':'artworks/team-modern.jpg',
+ 'Krakoa':'artworks/team-krakoa.jpg',
+ 'From the Ashes':'artworks/team-ashes.jpg'
+};
+function localEraTeamArt(era){
+ const key=Object.keys(ERA_TEAM_ART).find(k=>String(era).toLowerCase().includes(k.toLowerCase())||k.toLowerCase().includes(String(era).toLowerCase()));
+ if(key)return ERA_TEAM_ART[key];
+ const e=String(era).toLowerCase();
+ if(/70|80|claremont|origine/.test(e))return 'artworks/team-claremont.jpg';
+ if(/90/.test(e))return 'artworks/team-90s.jpg';
+ if(/200|moderne|morrison|whedon/.test(e))return 'artworks/team-modern.jpg';
+ if(/krakoa|2019|2020|2021|2022|2023/.test(e))return 'artworks/team-krakoa.jpg';
+ if(/ashes|2024|2025|2026/.test(e))return 'artworks/team-ashes.jpg';
+ return 'artworks/team-modern.jpg';
+}
+
 function teamArtForEra(era,arr){
  const local={
   'Claremont':'characters/team-claremont.webp',
@@ -623,8 +751,8 @@ function teamArtForEra(era,arr){
  return pick?M(pick.id).cover:'';
 }
 function eraTeamImg(era,arr){
- const src=teamArtForEra(era,arr);if(!src)return '';
- return `<img class="vaultCharacter vaultTeamArt" src="${esc(src)}" alt="X-Men · ${esc(era)}">`
+ const src=localEraTeamArt(era)||teamArtForEra(era,arr);
+ return src?`<img class="vaultCharacter vaultTeamArt" src="${esc(src)}" alt="X-Men · ${esc(era)}">`:'';
 }
 
 function representativeCoverFor(name,era=''){
@@ -697,6 +825,34 @@ function databaseHealth(){const total=items.length;return{total,covers:items.fil
 function renderHealth(){const h=databaseHealth(),host=document.getElementById('cerebroAnalysis');if(!host)return;host.insertAdjacentHTML('beforeend',`<h3 style="margin-top:20px">État de santé de la base</h3><div class="healthGrid"><div class="healthCard"><strong>${h.covers}/${h.total}</strong><span>VISUELS LOCAUX</span></div><div class="healthCard"><strong>${h.indexed}/${h.total}</strong><span>CONTENUS US INDEXÉS</span></div><div class="healthCard"><strong>${h.eans}/${h.total}</strong><span>EAN / ISBN</span></div><div class="healthCard"><strong>${h.pages}/${h.total}</strong><span>PAGINATIONS</span></div></div>`)}
 function finalRenderExtras(){renderHealth();const lv=lastViewed(),x=items.find(i=>i.id===lv);if(x&&nextReading&&!nextReading.querySelector('.resumeBadge')){const marker=document.createElement('div');marker.className='resumeBadge';marker.textContent='↺ DERNIER ALBUM CONSULTÉ';nextReading.prepend(marker)}if(lastAddedId){document.querySelectorAll(`[data-vbook="${lastAddedId}"]`).forEach(e=>e.classList.add('justAdded'));document.querySelectorAll(`[data-detail="${lastAddedId}"]`).forEach(e=>e.closest('.card')?.classList.add('justOwned'));setTimeout(()=>{lastAddedId='';document.querySelectorAll('.justAdded,.justOwned').forEach(e=>e.classList.remove('justAdded','justOwned'))},900)}}
 
+
+const MUTANT_PROFILES=[
+ {name:'Wolverine',slug:'wolverine',alias:'LOGAN',groups:'X-Men · X-Force · Avengers',power:'Régénération · Griffes d’adamantium · Sens surdéveloppés',desc:'Arme vivante, Logan est l’un des mutants les plus emblématiques des X-Men. Son passé mystérieux et sa quête d’identité en font une présence centrale de l’univers mutant.'},
+ {name:'Cyclope',slug:'cyclops',alias:'SCOTT SUMMERS',groups:'X-Men · X-Factor',power:'Rafales optiques · Tacticien',desc:'Leader de terrain historique des X-Men, Scott Summers incarne la discipline, la stratégie et le rêve de Xavier.'},
+ {name:'Jean Grey',slug:'jean-grey',alias:'PHOENIX',groups:'X-Men',power:'Télépathie · Télékinésie · Force Phénix',desc:'Une des télépathes les plus puissantes de l’univers Marvel, au cœur de la saga du Phénix.'},
+ {name:'Storm',slug:'storm',alias:'ORORO MUNROE',groups:'X-Men',power:'Contrôle météorologique · Vol',desc:'Cheffe et déesse des éléments, Ororo est une figure majeure de plusieurs générations de X-Men.'},
+ {name:'Rogue',slug:'rogue',alias:'ANNA MARIE',groups:'X-Men',power:'Absorption des pouvoirs et souvenirs',desc:'Une héroïne marquée par un pouvoir qui rend tout contact dangereux, devenue une X-Woman essentielle.'},
+ {name:'Gambit',slug:'gambit',alias:'REMY LEBEAU',groups:'X-Men',power:'Énergie cinétique · Agilité',desc:'Voleur cajun au charme insolent, Gambit charge les objets en énergie explosive.'},
+ {name:'Beast',slug:'beast',alias:'HANK McCOY',groups:'X-Men · X-Factor',power:'Force · Agilité · Intelligence',desc:'Scientifique brillant et membre historique des X-Men, partagé entre humanisme et mutations toujours plus profondes.'},
+ {name:'Colossus',slug:'colossus',alias:'PIOTR RASPUTIN',groups:'X-Men',power:'Corps d’acier organique · Force',desc:'Artiste russe capable de transformer son corps en acier organique, pilier de l’équipe depuis l’ère Claremont.'},
+ {name:'Kitty Pryde',slug:'kitty-pryde',alias:'KATE PRYDE',groups:'X-Men · Excalibur',power:'Intangibilité',desc:'Entrée adolescente chez les X-Men, Kitty est devenue l’une des voix les plus importantes de la communauté mutante.'}
+];
+function renderMutantGallery(){
+ if(!mutantNetwork)return;
+ let host=document.getElementById('mutantGalleryHost');
+ if(!host){
+   host=document.createElement('div');host.id='mutantGalleryHost';
+   mutantNetwork.parentElement.insertBefore(host,mutantNetwork);
+ }
+ host.innerHTML=`<div class="mutantMenuTitle">DOSSIERS MUTANTS // SÉLECTIONNER UN PERSONNAGE</div><div class="mutantGallery">${MUTANT_PROFILES.map((m,i)=>`<button class="mutantCard" data-mutant="${i}"><img src="artworks/${m.slug}.jpg" alt="${esc(m.name)}"><span>${esc(m.name)}</span></button>`).join('')}</div><div class="mutantFocus" id="mutantFocus"></div>`;
+ host.querySelectorAll('[data-mutant]').forEach(b=>b.onclick=()=>openMutant(+b.dataset.mutant));
+}
+function openMutant(i){
+ const m=MUTANT_PROFILES[i],host=document.getElementById('mutantFocus');if(!m||!host)return;
+ host.innerHTML=`<div class="mutantHero"><img src="artworks/${m.slug}.jpg" alt="${esc(m.name)}"></div><div class="mutantFocusBody"><small>${esc(m.alias)}</small><h3>${esc(m.name)}</h3><p>${esc(m.groups)}</p><div class="detailBlock"><h3>Pouvoirs</h3><p>${esc(m.power)}</p></div><div class="detailBlock"><h3>Profil</h3><p>${esc(m.desc)}</p></div></div>`;
+ host.classList.add('open');host.scrollIntoView({behavior:'smooth',block:'nearest'})
+}
+
 function save(){localStorage.setItem(OWN,JSON.stringify(owned));localStorage.setItem(LIST,JSON.stringify(items));localStorage.setItem(META,JSON.stringify(meta));showSaved()}
 function M(id){return meta[id]||(meta[id]={read:false,fav:false,priority:false,ordered:false,price:0,retail:0,cover:'',isbn:'',edition:'',pages:'',shop:'',date:'',condition:'',duplicate:''})}
 
@@ -715,7 +871,7 @@ function stats(){
 function groupStats(){return [...new Set(items.map(x=>x.era))].map(name=>{let a=items.filter(x=>x.era===name);return{name,total:a.length,owned:a.filter(x=>owned[x.id]).length,read:a.filter(x=>M(x.id).read).length}})}
 function renderEras(){return groupStats()}
 function match(x){let m=M(x.id),q=search.value.toLowerCase(),hay=(x.title+' '+x.period+' '+x.series+' '+x.fmt+' '+x.note+' '+m.isbn+' '+m.edition).toLowerCase(),ok=!q||hay.includes(q);if(filter==='missing')ok=ok&&!owned[x.id]&&!m.ordered;else if(filter==='ordered')ok=ok&&m.ordered;else if(filter==='owned')ok=ok&&owned[x.id];else if(filter==='unread')ok=ok&&owned[x.id]&&!m.read;else if(filter==='fav')ok=ok&&m.fav;return ok}
-function renderList(){list.innerHTML='';let last='';items.forEach((x,i)=>{if(!match(x))return;if(x.era!==last){list.insertAdjacentHTML('beforeend',renderEraChapter(x.era));last=x.era}let m=M(x.id),c=document.createElement('article');c.className='card';c.dataset.era=x.era;const oo=buyMode?ownedOverlap(x):null;c.innerHTML=`<div class="row"><label><input type="checkbox" data-own="${x.id}" ${owned[x.id]?'checked':''}><span class="check"></span></label><div data-detail="${x.id}"><div class="meta"><span class="tag year">#${String(i+1).padStart(3,'0')}</span><span class="tag year">${esc(x.period)}</span><span class="tag">${esc(x.series)}</span></div><div class="title">${esc(x.title)}</div><div class="fmt">${esc(x.fmt)}</div>${buyMode?`<div class="note"><b>${m.isbn?'EAN '+esc(m.isbn):'EAN à compléter'}</b>${oo&&oo.total?` · ${oo.pct}% inédit pour toi`:''}</div>`:''}${(m.edition||m.pages||m.isbn)&&!buyMode?`<div class="note">Panini ${esc(m.edition||'—')} · ${esc(m.pages||'—')} p.${m.isbn?' · EAN '+esc(m.isbn):''}</div>`:''}${x.contentSpec&&!buyMode?`<div class="note">✓ Contenu US indexé</div>`:''}${x.note&&!buyMode?`<div class="note">${esc(x.note)}</div>`:''}${!buyMode?`<div class="pills"><button class="pill ${m.read?'on':''}" data-act="read" data-id="${x.id}">📖 Lu</button><button class="pill ${m.priority?'on':''}" data-act="priority" data-id="${x.id}">🎯 Prioritaire</button><button class="pill ${m.ordered?'on':''}" data-act="ordered" data-id="${x.id}">📦 Commandé</button><button class="pill ${m.fav?'on':''}" data-act="fav" data-id="${x.id}">♥</button><button class="pill" data-act="price" data-id="${x.id}">€ ${m.price||'Prix'}</button></div>`:''}</div>${!buyMode?`<div class="tools"><button class="mini" data-act="edit" data-id="${x.id}">✎</button></div>`:''}</div>`;list.appendChild(c)});wire();observeEras()}
+function renderList(){list.innerHTML='';let last='';items.forEach((x,i)=>{if(!match(x))return;if(x.era!==last){list.insertAdjacentHTML('beforeend',renderEraChapter(x.era));last=x.era}let m=M(x.id),c=document.createElement('article');c.className='card'+(owned[x.id]?' owned':'');c.dataset.era=x.era;const oo=buyMode?ownedOverlap(x):null;c.innerHTML=`${owned[x.id]?'<div class="ownedClaws"><i></i><i></i><i></i></div>':''}<div class="row"><label><input type="checkbox" data-own="${x.id}" ${owned[x.id]?'checked':''}><span class="check"></span></label><div data-detail="${x.id}"><div class="meta"><span class="tag year">#${String(i+1).padStart(3,'0')}</span><span class="tag year">${esc(x.period)}</span><span class="tag">${esc(x.series)}</span></div><div class="title">${esc(x.title)}</div><div class="fmt">${esc(x.fmt)}</div>${buyMode?`<div class="note"><b>${m.isbn?'EAN '+esc(m.isbn):'EAN à compléter'}</b>${oo&&oo.total?` · ${oo.pct}% inédit pour toi`:''}</div>`:''}${(m.edition||m.pages||m.isbn)&&!buyMode?`<div class="note">Panini ${esc(m.edition||'—')} · ${esc(m.pages||'—')} p.${m.isbn?' · EAN '+esc(m.isbn):''}</div>`:''}${x.contentSpec&&!buyMode?`<div class="note">✓ Contenu US indexé</div>`:''}${x.note&&!buyMode?`<div class="note">${esc(x.note)}</div>`:''}${!buyMode?`<div class="pills"><button class="pill ${m.read?'on':''}" data-act="read" data-id="${x.id}">📖 Lu</button><button class="pill ${m.priority?'on':''}" data-act="priority" data-id="${x.id}">🎯 Prioritaire</button><button class="pill ${m.ordered?'on':''}" data-act="ordered" data-id="${x.id}">📦 Commandé</button><button class="pill ${m.fav?'on':''}" data-act="fav" data-id="${x.id}">♥</button><button class="pill" data-act="price" data-id="${x.id}">€ ${m.price||'Prix'}</button></div>`:''}</div>${!buyMode?`<div class="tools"><button class="mini" data-act="edit" data-id="${x.id}">✎</button></div>`:''}</div>`;list.appendChild(c)});wire();observeEras()}
 function renderGrid(){grid.innerHTML='';items.filter(x=>libFilter==='owned'?owned[x.id]:libFilter==='missing'?!owned[x.id]:M(x.id).fav).forEach(x=>{let b=document.createElement('div');b.className='book';b.dataset.detail=x.id;b.innerHTML=`<div class="cover">${coverHTML(x)}</div><div class="bookinfo"><b>${esc(x.title)}</b><span>#${String(items.indexOf(x)+1).padStart(3,'0')} · ${esc(x.period)}</span></div>`;grid.appendChild(b)});document.querySelectorAll('[data-detail]').forEach(e=>e.onclick=ev=>{if(ev.target.closest('button'))return;openDetail(e.dataset.detail)})}
 function wire(){document.querySelectorAll('[data-own]').forEach(e=>e.onchange=()=>{owned[e.dataset.own]=e.checked;if(e.checked){M(e.dataset.own).ordered=false;lastAddedId=e.dataset.own}checkArcCompletion(e.dataset.own);save();renderAll()});document.querySelectorAll('[data-act]').forEach(b=>b.onclick=e=>{e.stopPropagation();act(b.dataset.act,b.dataset.id)});document.querySelectorAll('[data-detail]').forEach(e=>e.onclick=ev=>{if(ev.target.closest('button'))return;openDetail(e.dataset.detail)})}
 function act(a,id){let i=items.findIndex(x=>x.id===id),m=M(id);if(a==='read')m.read=!m.read;else if(a==='priority')m.priority=!m.priority;else if(a==='ordered')m.ordered=!m.ordered;else if(a==='fav')m.fav=!m.fav;else if(a==='price'){priceId.value=id;priceInput.value=m.price||'';retailInput.value=m.retail||'';priceModal.classList.add('open');return}else if(a==='copy'){copyId.value=id;shopInput.value=m.shop||'';dateInput.value=m.date||'';conditionInput.value=m.condition||'';copyModal.classList.add('open');return}else if(a==='edit'){openEdit(id);return}else if(a==='delete'){if(confirm('Supprimer ce titre ?'))items.splice(i,1)}else if(a==='up'&&i>0)[items[i-1],items[i]]=[items[i],items[i-1]];else if(a==='down'&&i<items.length-1)[items[i+1],items[i]]=[items[i],items[i+1]];save();renderAll()}
