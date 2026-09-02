@@ -140,6 +140,7 @@ body{overflow-x:hidden}
 .detailCover{transform-origin:center;animation:coverPop .48s var(--ease-spring) both}
 @keyframes coverPop{from{opacity:0;transform:scale(.88) rotate(-1.5deg)}to{opacity:1;transform:none}}
 .detailBlock{opacity:0;transform:translateY(8px);animation:detailIn .36s var(--ease-out) forwards}
+@keyframes detailIn{to{opacity:1;transform:none}}
 .detailBlock:nth-of-type(1){animation-delay:.05s}.detailBlock:nth-of-type(2){animation-delay:.1s}.detailBlock:nth-of-type(3){animation-delay:.15s}.detailBlock:nth-of-type(4){animation-delay:.2s}
 
 .detailNav button{transition:transform var(--motion-fast) var(--ease-spring),background var(--motion-fast)}
@@ -365,6 +366,8 @@ body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;back
 .mxProgress{background:#06152cd6!important;border:1px solid #3778c64b!important;border-radius:15px!important;padding:13px!important}
 .mxTrack{height:3px!important;background:#102746!important}.mxTrack i{background:linear-gradient(90deg,#1878df,#68c4ff)!important;box-shadow:0 0 12px #3fa5ff!important}
 .mxActions{gap:8px!important}.mxAction{border:1px solid #3978c247!important;background:#07182fe8!important;color:#eef6ff!important;border-radius:12px!important}.mxAction.primary{background:#0c2d58!important;color:#fff!important;border-color:#488dd35e!important}
+.homeStatsGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:14px}.homeStat{background:#06162dcc;border:1px solid #3778c34a;border-radius:12px;padding:9px 5px;text-align:center}.homeStat strong{display:block;font-size:19px;color:var(--accent2,#ffd447);line-height:1.05}.homeStat span{display:block;font-size:7.5px;letter-spacing:.06em;color:#8fb2d8;text-transform:uppercase;margin-top:3px}
+@media(max-width:360px){.homeStatsGrid{gap:5px}.homeStat{padding:7px 3px}.homeStat strong{font-size:16px}.homeStat span{font-size:7px}}
 .mxSection{background:transparent!important;padding:16px 2px!important}.mxSectionHead h3{font-size:14px!important;letter-spacing:.12em!important;text-transform:uppercase!important}
 .nextBook{background:#07152ce8!important;border:1px solid #3f7bc24a!important;border-radius:15px!important;box-shadow:0 14px 30px #0007!important}
 .nextBook .cover{width:62px!important;min-width:62px!important;height:86px!important;box-shadow:0 10px 20px #000b!important}
@@ -381,7 +384,7 @@ body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;back
 .ownedClaws{opacity:.92!important}
 
 #libraryView{padding:12px!important}.vaultHero{min-height:155px!important;border-radius:18px!important;background:#06152e!important;border:1px solid #387bc54d!important;padding:18px!important}
-.vaultHero h2{font-size:30px!important;line-height:1!important;letter-spacing:.06em!important}.vaultHero h2 br{display:none}.vaultHero h2:after{content:"X-VAULT";display:block;font-size:8px;color:#59b4ff;letter-spacing:.4em;margin-top:6px}
+.vaultHero h2{font-size:30px!important;line-height:1.05!important;letter-spacing:.06em!important}.vaultHero h2:after{content:"X-VAULT";display:block;font-size:8px;color:#59b4ff;letter-spacing:.4em;margin-top:6px}
 .vaultHero p{font-size:10px!important}.vaultStats{gap:6px!important}.vaultStat{background:#031024!important;border:1px solid #356fae42!important}.vaultStat b{font-size:17px!important}
 .vaultModes{background:#020b18!important;border:1px solid #397ac64c!important;border-radius:12px!important;padding:4px!important;position:sticky!important;top:58px!important;z-index:30!important}
 .vaultMode{font-size:9px!important;background:transparent!important;border:0!important;color:#7895b7!important}.vaultMode.on{background:#0b3b72!important;color:#fff!important;box-shadow:0 0 16px #2689ff3a!important}
@@ -422,8 +425,18 @@ body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;back
 @keyframes lockedSlash{0%{transform:translateX(-80px) rotate(-18deg)!important;opacity:0}30%{opacity:1}100%{transform:translateX(0) rotate(-18deg)!important;opacity:1}}
 .mutantMenuTitle{margin:16px 2px 8px;font-size:9px;font-weight:900;letter-spacing:.18em;color:#65b7ff}
 .mutantGallery{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important}
-.mutantCard{display:block!important;min-width:0!important;aspect-ratio:.82!important;border-radius:13px!important;overflow:hidden!important;border:1px solid #397cc65c!important;background:#06152b!important;box-shadow:0 10px 24px #0007!important}
+.mutantCard{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-width:0!important;aspect-ratio:.82!important;border-radius:13px!important;overflow:hidden!important;border:1px solid color-mix(in srgb,var(--mc,#3a7ac2) 55%,#397cc65c)!important;background:linear-gradient(155deg,color-mix(in srgb,var(--mc,#1e7ee8) 32%,#06152b),#050d1c)!important;box-shadow:0 10px 24px #0007!important;padding:10px 4px}
+.mutantCardAvatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid color-mix(in srgb,var(--mc,#3a7ac2) 75%,white);box-shadow:0 6px 16px #0008;flex:none}
 .mutantCard img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important}
+.mutantCardName{font-size:9px!important;font-weight:850;text-transform:uppercase;letter-spacing:.04em;text-align:center;color:#f2f7ff}
+.mutantHero{background:linear-gradient(150deg,color-mix(in srgb,var(--mc,#1e7ee8) 40%,#06162e),#020914)!important;display:flex;align-items:center;justify-content:center}
+.mutantHeroAvatar{width:120px;height:120px;border-radius:50%;overflow:hidden;border:3px solid color-mix(in srgb,var(--mc,#3a7ac2) 80%,white);box-shadow:0 14px 34px #000a;position:relative;z-index:1}
+.mutantHeroAvatar img{width:100%;height:100%;object-fit:cover;display:block}
+.mutantFocusTop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.mutantAppBadge{text-align:center;background:#06162d;border:1px solid #397bc148;border-radius:12px;padding:8px 10px;min-width:64px}
+.mutantAppBadge strong{display:block;font-size:18px;color:var(--accent2,#ffd447)}.mutantAppBadge span{font-size:7px;letter-spacing:.1em;opacity:.65}
+.mutantAppStrip{display:flex;gap:7px;overflow-x:auto;padding-top:8px;scrollbar-width:none}
+.mutantAppCover{flex:none;width:52px;aspect-ratio:2/3;border-radius:7px;overflow:hidden;border:0;padding:0;background:#06152b;box-shadow:0 6px 14px #0007}
 .vaultEraBg{display:block!important;position:relative!important;height:210px!important;overflow:hidden!important;background:#041022!important}
 .vaultEraBg .vaultTeamArt{display:block!important;position:absolute!important;inset:0!important;width:100%!important;max-width:none!important;height:100%!important;object-fit:cover!important;object-position:center 28%!important;opacity:.82!important;filter:saturate(.9) contrast(1.08) brightness(.72)!important}
 .vbook{position:relative!important;overflow:hidden!important;border-left:1px solid #ffffff20!important;border-right:1px solid #000b!important;box-shadow:inset 5px 0 8px #ffffff08,inset -7px 0 10px #0008,5px 6px 10px #0009!important}
@@ -431,6 +444,21 @@ body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;back
 .vbook:not(.missing):hover,.vbook:not(.missing):active{transform:translateY(-10px) rotate(-1deg)!important;filter:brightness(1.16)!important;z-index:5}
 .vaultEra.inview .vaultTeamArt{animation:eraReveal 1s cubic-bezier(.16,1,.3,1) both}
 @keyframes eraReveal{from{transform:scale(1.08);opacity:.35}to{transform:scale(1);opacity:.82}}
+.eraBanner{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;overflow:hidden;background:linear-gradient(155deg,var(--e2) 0%,var(--e1) 62%,#020914 100%)}
+.eraBanner:before{content:"";position:absolute;inset:-25%;background:radial-gradient(circle at 72% 22%,color-mix(in srgb,var(--e3) 50%,transparent),transparent 52%),repeating-radial-gradient(circle at 72% 22%,transparent 0 22px,color-mix(in srgb,var(--e3) 22%,transparent) 23px 24px,transparent 25px 42px)}
+.eraBannerX{position:absolute;right:-6%;top:-38%;font:900 230px/1 Arial,sans-serif;color:#ffffff12;transform:rotate(-8deg);letter-spacing:0}
+.eraBannerLabel{position:absolute;left:16px;bottom:14px;right:16px;font:900 12px/1.2 -apple-system,BlinkMacSystemFont,sans-serif;letter-spacing:.24em;color:color-mix(in srgb,var(--e3) 85%,white);text-transform:uppercase;opacity:.92;text-shadow:0 2px 12px #000a}
+</style>
+<style id="era-banner-priority-fix">
+.vaultEra .vaultTeamArt.eraBanner,.vaultEra.inview .vaultTeamArt.eraBanner{opacity:1!important;filter:none!important;transform:none!important;mix-blend-mode:normal!important}
+</style>
+<style id="shelf-real-covers">
+.vbook.hasCover{background-image:var(--cover-url)!important;background-size:cover!important;background-position:center 15%!important;background-color:#0a1730}
+.vbook.hasCover:not(.missing):before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#00000000 62%,#000000d9 100%);pointer-events:none;z-index:1}
+.vbook.hasCover .vbookSpine{display:none}
+.vbook.hasCover .vbookNo{z-index:2;bottom:6px;text-shadow:0 1px 4px #000}
+.vbook.hasCover.read:not(.missing):before{background:linear-gradient(180deg,#00000000 52%,#000000e6 100%)}
+.vbook:not(.hasCover):not(.missing){background:linear-gradient(160deg,#1b4b91,#0a1730 60%,#142f5d)}
 </style>
 </head><body><div id="saveToast"><b>✓</b> Sauvegardé</div><div id="updatePill"><b>V1.0</b><button id="forceRefreshBtn">Actualiser</button></div><div id="buildBadge">V1.0 LOCKED</div>
 <header><div class="brand"><div class="logo"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="38" fill="none" stroke="#f3c600" stroke-width="8"/><path d="M28 24 L50 45 L72 24 L78 31 L57 51 L78 71 L72 78 L50 57 L28 78 L22 71 L43 51 L22 31 Z" fill="#f3c600"/></svg></div><div><h1>Cerebro</h1><div class="kicker">X-MEN + WOLVERINE · V1.0 LOCKED</div></div></div><span id="eraLabel">CLAREMONT</span></header>
@@ -442,6 +470,7 @@ body:after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;back
     <h2>CEREBRO</h2>
     <p>Mutants. Comics. Légende. Ta collection X-Men vivante.</p>
     <div class="mxProgress"><div class="mxProgressTop"><span>COLLECTION</span><strong id="mxPct">0%</strong></div><div class="mxTrack"><i id="mxBar" style="width:0%"></i></div></div>
+    <div class="homeStatsGrid" id="homeStatsGrid"></div>
     <div class="mxActions"><button class="mxAction primary" id="continueBtn">▶ Continuer la lecture</button><button class="mxAction" id="buyModeHome">⌁ Mode libraire</button></div>
   </div>
   <div class="mxSection"><div class="mxSectionHead"><h3>Prochaine lecture</h3><span id="nextCounter">—</span></div><div id="nextReading"></div></div>
@@ -637,6 +666,9 @@ function gotoView(id){
 function renderHomeModern(){
  const own=items.filter(x=>owned[x.id]).length,pct=items.length?Math.round(own/items.length*100):0;
  mxPct.textContent=pct+'%';mxBar.style.width=pct+'%';
+ const readCount=items.filter(x=>M(x.id).read).length,favCount=items.filter(x=>M(x.id).fav).length;
+ const _hsg=document.getElementById('homeStatsGrid');
+ if(_hsg)_hsg.innerHTML=`<div class="homeStat"><strong>${items.length}</strong><span>Albums</span></div><div class="homeStat"><strong>${own}</strong><span>Possédés</span></div><div class="homeStat"><strong>${readCount}</strong><span>Lus</span></div><div class="homeStat"><strong>${favCount}</strong><span>Favoris</span></div>`;
  const n=nextUnread();nextCounter.textContent=n?`#${String(items.indexOf(n)+1).padStart(3,'0')}`:'TERMINÉ';
  nextReading.innerHTML=n?`<div class="nextBook"><div class="cover">${coverHTML(n)}</div><div><div class="mxEyebrow">${esc(n.era)} · ${esc(n.period)}</div><h4>${esc(n.title)}</h4><p>${owned[n.id]?'Dans ta collection · à lire':'À acquérir pour poursuivre la chronologie'}</p><button class="btn yellow" data-next="${n.id}">Ouvrir la fiche</button></div></div>`:'';
  document.querySelector('[data-next]')?.addEventListener('click',e=>openDetail(e.currentTarget.dataset.next));
@@ -750,9 +782,17 @@ function teamArtForEra(era,arr){
  const pick=nonSolo||candidates[0]||items.find(x=>x.era===era&&M(x.id).cover&&!/wolverine|logan|x-23|laura/i.test(x.title+' '+x.series));
  return pick?M(pick.id).cover:'';
 }
+const ERA_BANNER_COLORS={
+ 'Claremont':['#07162e','#1e7ee8','#ffd447'],
+ 'Années 90':['#102b6a','#1d66d1','#ffd51f'],
+ 'Morrison':['#17191e','#6e7580','#d5c54a'],
+ 'Ère moderne':['#102c5d','#2d76c8','#f1c91c'],
+ 'Krakoa':['#273c31','#6a4b91','#d7c56a'],
+ 'From the Ashes':['#242834','#b13a36','#e3b72d']
+};
 function eraTeamImg(era,arr){
- const src=localEraTeamArt(era)||teamArtForEra(era,arr);
- return src?`<img class="vaultCharacter vaultTeamArt" src="${esc(src)}" alt="X-Men · ${esc(era)}">`:'';
+ const c=ERA_BANNER_COLORS[era]||['#07162e','#1e7ee8','#ffd447'];
+ return `<div class="vaultCharacter vaultTeamArt eraBanner" style="--e1:${c[0]};--e2:${c[1]};--e3:${c[2]}"><span class="eraBannerX">X</span><span class="eraBannerLabel">${esc(era)}</span></div>`;
 }
 
 function representativeCoverFor(name,era=''){
@@ -779,7 +819,7 @@ function renderVault(){
  if(vaultMode==='gallery')return renderVaultGallery(arr);
  if(vaultMode==='timeline')return renderVaultTimeline(arr);
  const groups=[];arr.forEach(x=>{let g=groups.find(a=>a.era===x.era);if(!g){g={era:x.era,items:[]};groups.push(g)}g.items.push(x)});
- vaultStage.innerHTML=groups.map(g=>{const c=eraCharacter(g.era,g.items),d=ERA_COPY[g.era]||[g.era.toUpperCase(),'Archive mutante'];return `<section class="vaultEra" data-vault-era="${esc(g.era)}"><div class="vaultEraBg">${eraTeamImg(g.era,g.items)}</div><div class="vaultEraHead"><small>${esc(g.era.toUpperCase())}${c?' // '+esc(c.toUpperCase()):''}</small><h3>${esc(d[0])}</h3><p>${g.items.filter(x=>owned[x.id]).length}/${g.items.length} volumes acquis</p></div><div class="shelfScene"><div class="shelfBooks">${g.items.map((x,i)=>`<div class="vbook ${vaultBookClass(x)} ${owned[x.id]?'':'missing'} ${M(x.id).read?'read':''}" data-vbook="${x.id}" style="--stagger:${Math.min(i,18)}"><div class="vbookSpine">${esc(x.title)}</div><div class="vbookNo">#${String(items.indexOf(x)+1).padStart(3,'0')}</div></div>`).join('')}</div></div></section>`}).join('')||'<div class="vaultEmpty">Aucun volume à afficher.</div>';
+ vaultStage.innerHTML=groups.map(g=>{const c=eraCharacter(g.era,g.items),d=ERA_COPY[g.era]||[g.era.toUpperCase(),'Archive mutante'];return `<section class="vaultEra" data-vault-era="${esc(g.era)}"><div class="vaultEraBg">${eraTeamImg(g.era,g.items)}</div><div class="vaultEraHead"><small>${esc(g.era.toUpperCase())}${c?' // '+esc(c.toUpperCase()):''}</small><h3>${esc(d[0])}</h3><p>${g.items.filter(x=>owned[x.id]).length}/${g.items.length} volumes acquis</p></div><div class="shelfScene"><div class="shelfBooks">${g.items.map((x,i)=>{const cv=(M(x.id).cover||'').trim();return `<div class="vbook ${vaultBookClass(x)} ${owned[x.id]?'':'missing'} ${M(x.id).read?'read':''} ${cv?'hasCover':''}" data-vbook="${x.id}" style="--stagger:${Math.min(i,18)}${cv?`;--cover-url:url('${esc(cv)}')`:''}"><div class="vbookSpine">${esc(x.title)}</div><div class="vbookNo">#${String(items.indexOf(x)+1).padStart(3,'0')}</div></div>`}).join('')}</div></div></section>`}).join('')||'<div class="vaultEmpty">Aucun volume à afficher.</div>';
  wireVault();
  const io=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle('inview',e.isIntersecting)),{threshold:.22});document.querySelectorAll('.vaultEra').forEach(e=>io.observe(e));
 }
@@ -827,16 +867,19 @@ function finalRenderExtras(){renderHealth();const lv=lastViewed(),x=items.find(i
 
 
 const MUTANT_PROFILES=[
- {name:'Wolverine',slug:'wolverine',alias:'LOGAN',groups:'X-Men · X-Force · Avengers',power:'Régénération · Griffes d’adamantium · Sens surdéveloppés',desc:'Arme vivante, Logan est l’un des mutants les plus emblématiques des X-Men. Son passé mystérieux et sa quête d’identité en font une présence centrale de l’univers mutant.'},
- {name:'Cyclope',slug:'cyclops',alias:'SCOTT SUMMERS',groups:'X-Men · X-Factor',power:'Rafales optiques · Tacticien',desc:'Leader de terrain historique des X-Men, Scott Summers incarne la discipline, la stratégie et le rêve de Xavier.'},
- {name:'Jean Grey',slug:'jean-grey',alias:'PHOENIX',groups:'X-Men',power:'Télépathie · Télékinésie · Force Phénix',desc:'Une des télépathes les plus puissantes de l’univers Marvel, au cœur de la saga du Phénix.'},
- {name:'Storm',slug:'storm',alias:'ORORO MUNROE',groups:'X-Men',power:'Contrôle météorologique · Vol',desc:'Cheffe et déesse des éléments, Ororo est une figure majeure de plusieurs générations de X-Men.'},
- {name:'Rogue',slug:'rogue',alias:'ANNA MARIE',groups:'X-Men',power:'Absorption des pouvoirs et souvenirs',desc:'Une héroïne marquée par un pouvoir qui rend tout contact dangereux, devenue une X-Woman essentielle.'},
- {name:'Gambit',slug:'gambit',alias:'REMY LEBEAU',groups:'X-Men',power:'Énergie cinétique · Agilité',desc:'Voleur cajun au charme insolent, Gambit charge les objets en énergie explosive.'},
- {name:'Beast',slug:'beast',alias:'HANK McCOY',groups:'X-Men · X-Factor',power:'Force · Agilité · Intelligence',desc:'Scientifique brillant et membre historique des X-Men, partagé entre humanisme et mutations toujours plus profondes.'},
- {name:'Colossus',slug:'colossus',alias:'PIOTR RASPUTIN',groups:'X-Men',power:'Corps d’acier organique · Force',desc:'Artiste russe capable de transformer son corps en acier organique, pilier de l’équipe depuis l’ère Claremont.'},
- {name:'Kitty Pryde',slug:'kitty-pryde',alias:'KATE PRYDE',groups:'X-Men · Excalibur',power:'Intangibilité',desc:'Entrée adolescente chez les X-Men, Kitty est devenue l’une des voix les plus importantes de la communauté mutante.'}
+ {name:'Wolverine',slug:'wolverine',alias:'LOGAN',groups:'X-Men · X-Force · Avengers',power:'Régénération · Griffes d’adamantium · Sens surdéveloppés',desc:'Arme vivante, Logan est l’un des mutants les plus emblématiques des X-Men. Son passé mystérieux et sa quête d’identité en font une présence centrale de l’univers mutant.',color:'#e8a11e',rx:/wolverine|logan|x-23|laura/i},
+ {name:'Cyclope',slug:'cyclops',alias:'SCOTT SUMMERS',groups:'X-Men · X-Factor',power:'Rafales optiques · Tacticien',desc:'Leader de terrain historique des X-Men, Scott Summers incarne la discipline, la stratégie et le rêve de Xavier.',color:'#c0392b',rx:/cyclop/i},
+ {name:'Jean Grey',slug:'jean-grey',alias:'PHOENIX',groups:'X-Men',power:'Télépathie · Télékinésie · Force Phénix',desc:'Une des télépathes les plus puissantes de l’univers Marvel, au cœur de la saga du Phénix.',color:'#e0562f',rx:/phoenix|jean grey|dark phoenix/i},
+ {name:'Storm',slug:'storm',alias:'ORORO MUNROE',groups:'X-Men',power:'Contrôle météorologique · Vol',desc:'Cheffe et déesse des éléments, Ororo est une figure majeure de plusieurs générations de X-Men.',color:'#4a6fa5',rx:/storm|tornade/i},
+ {name:'Rogue',slug:'rogue',alias:'ANNA MARIE',groups:'X-Men',power:'Absorption des pouvoirs et souvenirs',desc:'Une héroïne marquée par un pouvoir qui rend tout contact dangereux, devenue une X-Woman essentielle.',color:'#8b2f4f',rx:/rogue|malicia/i},
+ {name:'Gambit',slug:'gambit',alias:'REMY LEBEAU',groups:'X-Men',power:'Énergie cinétique · Agilité',desc:'Voleur cajun au charme insolent, Gambit charge les objets en énergie explosive.',color:'#7a3ba3',rx:/gambit/i},
+ {name:'Beast',slug:'beast',alias:'HANK McCOY',groups:'X-Men · X-Factor',power:'Force · Agilité · Intelligence',desc:'Scientifique brillant et membre historique des X-Men, partagé entre humanisme et mutations toujours plus profondes.',color:'#2d6e8e',rx:/beast|fauve/i},
+ {name:'Colossus',slug:'colossus',alias:'PIOTR RASPUTIN',groups:'X-Men',power:'Corps d’acier organique · Force',desc:'Artiste russe capable de transformer son corps en acier organique, pilier de l’équipe depuis l’ère Claremont.',color:'#5b6b78',rx:/colossus/i},
+ {name:'Kitty Pryde',slug:'kitty-pryde',alias:'KATE PRYDE',groups:'X-Men · Excalibur',power:'Intangibilité',desc:'Entrée adolescente chez les X-Men, Kitty est devenue l’une des voix les plus importantes de la communauté mutante.',color:'#3f7dc4',rx:/kitty pryde|shadowcat/i}
 ];
+function mutantAppearances(m){
+ return items.filter(x=>m.rx.test(x.title+' '+x.series+' '+(x.note||'')));
+}
 function renderMutantGallery(){
  if(!mutantNetwork)return;
  let host=document.getElementById('mutantGalleryHost');
@@ -844,13 +887,17 @@ function renderMutantGallery(){
    host=document.createElement('div');host.id='mutantGalleryHost';
    mutantNetwork.parentElement.insertBefore(host,mutantNetwork);
  }
- host.innerHTML=`<div class="mutantMenuTitle">DOSSIERS MUTANTS // SÉLECTIONNER UN PERSONNAGE</div><div class="mutantGallery">${MUTANT_PROFILES.map((m,i)=>`<button class="mutantCard" data-mutant="${i}"><img src="artworks/${m.slug}.jpg" alt="${esc(m.name)}"><span>${esc(m.name)}</span></button>`).join('')}</div><div class="mutantFocus" id="mutantFocus"></div>`;
+ host.innerHTML=`<div class="mutantMenuTitle">DOSSIERS MUTANTS // SÉLECTIONNER UN PERSONNAGE</div><div class="mutantGallery">${MUTANT_PROFILES.map((m,i)=>`<button class="mutantCard" data-mutant="${i}" style="--mc:${m.color}"><span class="mutantCardAvatar"><img src="artworks/${m.slug}.jpg" alt="${esc(m.name)}" loading="lazy"></span><span class="mutantCardName">${esc(m.name)}</span></button>`).join('')}</div><div class="mutantFocus" id="mutantFocus"></div>`;
  host.querySelectorAll('[data-mutant]').forEach(b=>b.onclick=()=>openMutant(+b.dataset.mutant));
 }
 function openMutant(i){
  const m=MUTANT_PROFILES[i],host=document.getElementById('mutantFocus');if(!m||!host)return;
- host.innerHTML=`<div class="mutantHero"><img src="artworks/${m.slug}.jpg" alt="${esc(m.name)}"></div><div class="mutantFocusBody"><small>${esc(m.alias)}</small><h3>${esc(m.name)}</h3><p>${esc(m.groups)}</p><div class="detailBlock"><h3>Pouvoirs</h3><p>${esc(m.power)}</p></div><div class="detailBlock"><h3>Profil</h3><p>${esc(m.desc)}</p></div></div>`;
- host.classList.add('open');host.scrollIntoView({behavior:'smooth',block:'nearest'})
+ const app=mutantAppearances(m),owned_=app.filter(x=>owned[x.id]).length;
+ const strip=app.slice(0,8).map(x=>`<button class="mutantAppCover" data-detail-jump="${x.id}">${coverHTML(x)}</button>`).join('');
+ host.innerHTML=`<div class="mutantHero" style="--mc:${m.color}"><span class="mutantHeroAvatar"><img src="artworks/${m.slug}.jpg" alt="${esc(m.name)}"></span></div><div class="mutantFocusBody"><div class="mutantFocusTop"><div><small>${esc(m.alias)}</small><h3>${esc(m.name)}</h3><p>${esc(m.groups)}</p></div>${app.length?`<div class="mutantAppBadge"><strong>${app.length}</strong><span>ALBUMS</span></div>`:''}</div><div class="detailBlock"><h3>Pouvoirs</h3><p>${esc(m.power)}</p></div><div class="detailBlock"><h3>Profil</h3><p>${esc(m.desc)}</p></div>${app.length?`<div class="detailBlock"><h3>Présent dans ${owned_?`· ${owned_} possédé${owned_>1?'s':''}`:''}</h3><div class="mutantAppStrip">${strip}</div></div>`:`<div class="detailBlock"><h3>Présent dans</h3><p>Ce personnage n’est pas encore relié automatiquement à des albums précis (son nom n’apparaît pas dans les titres). Il reste présent dans la chronologie X-Men au sens large.</p></div>`}</div>`;
+ host.classList.add('open');
+ host.querySelectorAll('[data-detail-jump]').forEach(b=>b.onclick=()=>{gotoView('listView');setTimeout(()=>openDetail(b.dataset.detailJump),260)});
+ host.scrollIntoView({behavior:'smooth',block:'nearest'})
 }
 
 function save(){localStorage.setItem(OWN,JSON.stringify(owned));localStorage.setItem(LIST,JSON.stringify(items));localStorage.setItem(META,JSON.stringify(meta));showSaved()}
@@ -877,7 +924,7 @@ function wire(){document.querySelectorAll('[data-own]').forEach(e=>e.onchange=()
 function act(a,id){let i=items.findIndex(x=>x.id===id),m=M(id);if(a==='read')m.read=!m.read;else if(a==='priority')m.priority=!m.priority;else if(a==='ordered')m.ordered=!m.ordered;else if(a==='fav')m.fav=!m.fav;else if(a==='price'){priceId.value=id;priceInput.value=m.price||'';retailInput.value=m.retail||'';priceModal.classList.add('open');return}else if(a==='copy'){copyId.value=id;shopInput.value=m.shop||'';dateInput.value=m.date||'';conditionInput.value=m.condition||'';copyModal.classList.add('open');return}else if(a==='edit'){openEdit(id);return}else if(a==='delete'){if(confirm('Supprimer ce titre ?'))items.splice(i,1)}else if(a==='up'&&i>0)[items[i-1],items[i]]=[items[i],items[i-1]];else if(a==='down'&&i<items.length-1)[items[i+1],items[i]]=[items[i],items[i+1]];save();renderAll()}
 function openDetail(id){
  const x=items.find(z=>z.id===id);if(!x)return;rememberViewed(id);const m=M(id),saving=m.retail&&m.price?m.retail-m.price:0;detailIndex=items.indexOf(x);
- detailContent.innerHTML=`<div class="detailNav"><button data-detail-prev>← Précédent</button><button data-detail-next>Suivant →</button></div><div class="detailCover">${coverHTML(x)}</div><h2>#${String(detailIndex+1).padStart(3,'0')} · ${esc(x.title)}</h2><div class="pills"><span class="pill ${owned[id]?'on':''}">✓ Possédé</span><span class="pill ${m.read?'on':''}">📖 Lu</span><span class="pill ${m.ordered?'on':''}">📦 Commandé</span><span class="pill ${m.fav?'on':''}">♥ Favori</span></div><button class="btn scanBtn" data-scan="${id}">◎ CEREBRO SCAN</button><div id="scanHost"></div><div class="detailBlock"><h3>Édition</h3><p>${esc(x.fmt)}</p><p>ISBN / EAN : ${esc(m.isbn||'—')}</p><p>Année d’édition : ${esc(m.edition||'—')} · Pages : ${esc(m.pages||'—')}</p></div><div class="detailBlock"><h3>Mon exemplaire</h3><p>Prix payé : ${m.price?m.price+' €':'—'} ${m.retail?'· Catalogue : '+m.retail+' €':''}</p>${saving>0?`<p>Économie : ${saving.toFixed(2)} €</p>`:''}<p>${esc(m.shop||'Lieu non renseigné')} ${m.date?'· '+esc(m.date):''}</p><p>État : ${esc(m.condition||'—')}</p></div><div class="detailBlock"><h3>Contenu US</h3><p>${x.contentSpec?esc(x.contentSpec).replace(/\n/g,'<br>'):'—'}</p></div>${eraProgressHTML(x)}<div class="detailBlock"><h3>Notes</h3><p>${esc(x.note||'—')}</p></div>`;
+ detailContent.innerHTML=`<div class="detailNav"><button data-detail-prev>← Précédent</button><button data-detail-next>Suivant →</button></div><div class="detailCover">${coverHTML(x)}</div><h2>#${String(detailIndex+1).padStart(3,'0')} · ${esc(x.title)}</h2><div class="pills"><span class="pill ${owned[id]?'on':''}">✓ Possédé</span><span class="pill ${m.read?'on':''}">📖 Lu</span><span class="pill ${m.ordered?'on':''}">📦 Commandé</span><span class="pill ${m.fav?'on':''}">♥ Favori</span></div><div class="detailBlock resumeBlock"><h3>Résumé</h3><p>${x.note?esc(x.note):'Aucun résumé enregistré pour cet album. Touche ✎ dans la Liste pour en ajouter un.'}</p></div><button class="btn scanBtn" data-scan="${id}">◎ CEREBRO SCAN</button><div id="scanHost"></div><div class="detailBlock"><h3>Édition</h3><p>${esc(x.fmt)}</p><p>ISBN / EAN : ${esc(m.isbn||'—')}</p><p>Année d’édition : ${esc(m.edition||'—')} · Pages : ${esc(m.pages||'—')}</p></div><div class="detailBlock"><h3>Mon exemplaire</h3><p>Prix payé : ${m.price?m.price+' €':'—'} ${m.retail?'· Catalogue : '+m.retail+' €':''}</p>${saving>0?`<p>Économie : ${saving.toFixed(2)} €</p>`:''}<p>${esc(m.shop||'Lieu non renseigné')} ${m.date?'· '+esc(m.date):''}</p><p>État : ${esc(m.condition||'—')}</p></div><div class="detailBlock"><h3>Contenu US</h3><p>${x.contentSpec?esc(x.contentSpec).replace(/\n/g,'<br>'):'—'}</p></div>${eraProgressHTML(x)}`;
  detailModal.classList.add('open');const sh=detailModal.querySelector('.sheet');if(sh)sh.scrollTop=0;detailContent.querySelector('[data-detail-prev]').onclick=()=>openDetail(items[(detailIndex-1+items.length)%items.length].id);detailContent.querySelector('[data-detail-next]').onclick=()=>openDetail(items[(detailIndex+1)%items.length].id);detailContent.querySelector('[data-scan]').onclick=e=>doScan(e.currentTarget.dataset.scan)
 }
 function openEdit(id=''){let x=id?items.find(z=>z.id===id):null,m=id?M(id):{};eid.value=id;etitle.value=x?.title||'';eperiod.value=x?.period||'';eseries.value=x?.series||'';efmt.value=x?.fmt||'';epriority.value=x?.priority||'Essentiel';eera.value=x?.era||currentEra;ecover.value=m.cover||'';eisbn.value=m.isbn||'';eedition.value=m.edition||'';epages.value=m.pages||'';enote.value=x?.note||'';eduplicate.value=m.duplicate||'';editModal.classList.add('open')}
